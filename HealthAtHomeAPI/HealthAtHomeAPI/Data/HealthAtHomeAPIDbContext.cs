@@ -18,6 +18,32 @@ namespace HealthAtHomeAPI.Data
 
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Routine>().HasKey(x => new { x.ExerciseID });
+            //modelBuilder.Entity<HotelRoom>().HasKey(x => new { x.HotelID, x.RoomID });
+
+            modelBuilder.Entity<Exercises>().HasData(
+                new Exercises
+                {
+                    ID = 1,
+                    ExerciseName = "Bicep Curls",
+                    Sets = 3,
+                    Reps = 5,
+                    Image = "test",
+                    Description = "Bring hand to shoulder"
+                }
+                );
+
+            modelBuilder.Entity<Routine>().HasData(
+                 new Routine
+                 {
+                     ExerciseID = 1,
+                     RoutineNameID = 1
+                 }
+                 );
+        }
+
         /// <summary>
         /// This tells what our structure and names of our tables are going to be in the database.
         /// </summary>
