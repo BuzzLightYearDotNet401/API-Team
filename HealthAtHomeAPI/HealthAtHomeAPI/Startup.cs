@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using HealthAtHomeAPI.Data;
+using HealthAtHomeAPI.Models.Interfaces;
+using HealthAtHomeAPI.Models.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -39,6 +41,9 @@ namespace HealthAtHomeAPI
             services.AddDbContext<HealthAtHomeAPIDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            // mappings
+            services.AddTransient<IExerciseManager, ExerciseService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,7 +60,6 @@ namespace HealthAtHomeAPI
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
-
             });
         }
     }
