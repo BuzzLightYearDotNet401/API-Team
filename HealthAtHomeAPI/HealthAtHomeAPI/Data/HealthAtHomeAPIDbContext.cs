@@ -290,15 +290,19 @@ namespace HealthAtHomeAPI.Data
             modelBuilder.Entity<Rating>().HasData(
                  new Rating
                  {
-                     
-                 }
+                       ID = 1,
+                       UserID = 1,
+                       RoutineID = 1,
+                       StarRating = StarRating.FourStar
+    }
                  );
 
             // Brandon - please seed data for User
             modelBuilder.Entity<User>().HasData(
                  new User
                  {
-                     
+                     ID = 1,
+                     Name = "test"
                  }
                  );
 
