@@ -277,13 +277,157 @@ namespace HealthAtHomeAPI.Data
                 );
 
 
-            // Allyson and Sue to seed Routine in a bit 
             modelBuilder.Entity<Routine>().HasData(
                  new Routine
                  {
                      ExerciseID = 1,
                      RoutineNameID = 1
-                 }
+                 },
+                new Routine
+                {
+                    ExerciseID = 1,
+                    RoutineNameID = 2
+                },
+                new Routine
+                {
+                    ExerciseID = 1,
+                    RoutineNameID = 3
+                },
+                new Routine
+                {
+                    ExerciseID = 1,
+                    RoutineNameID = 4
+                },
+                new Routine
+                {
+                    ExerciseID = 1,
+                    RoutineNameID = 5
+                },
+                new Routine
+                {
+                    ExerciseID = 2,
+                    RoutineNameID = 6
+                },
+                new Routine
+                {
+                    ExerciseID = 2,
+                    RoutineNameID = 7
+                },
+                new Routine
+                {
+                    ExerciseID = 2,
+                    RoutineNameID = 8
+                },
+                new Routine
+                {
+                    ExerciseID = 2,
+                    RoutineNameID = 9
+                },
+                new Routine
+                {
+                    ExerciseID = 2,
+                    RoutineNameID = 10
+                },
+                new Routine
+                {
+                    ExerciseID = 3,
+                    RoutineNameID = 8
+                },
+                new Routine
+                {
+                    ExerciseID = 3,
+                    RoutineNameID = 10
+                },
+                new Routine
+                {
+                    ExerciseID = 3,
+                    RoutineNameID = 11
+                },
+                new Routine
+                {
+                    ExerciseID = 3,
+                    RoutineNameID = 12
+                },
+                new Routine
+                {
+                    ExerciseID = 4,
+                    RoutineNameID = 11
+                },
+                new Routine
+                {
+                    ExerciseID = 4,
+                    RoutineNameID = 12
+                },
+                new Routine
+                {
+                    ExerciseID = 4,
+                    RoutineNameID = 13
+                },
+                new Routine
+                {
+                    ExerciseID = 4,
+                    RoutineNameID = 14
+                },
+                new Routine
+                {
+                    ExerciseID = 4,
+                    RoutineNameID = 15
+                },
+                new Routine
+                {
+                    ExerciseID = 4,
+                    RoutineNameID = 21
+                },
+                new Routine
+                {
+                    ExerciseID = 5,
+                    RoutineNameID = 17
+                },
+                new Routine
+                {
+                    ExerciseID = 5,
+                    RoutineNameID = 19
+                },
+                new Routine
+                {
+                    ExerciseID = 5,
+                    RoutineNameID = 22
+                },
+                new Routine
+                {
+                    ExerciseID = 5,
+                    RoutineNameID = 23
+                },
+                new Routine
+                {
+                    ExerciseID = 6,
+                    RoutineNameID = 16
+                },
+                new Routine
+                {
+                    ExerciseID = 6,
+                    RoutineNameID = 17
+                },
+                new Routine
+                {
+                    ExerciseID = 6,
+                    RoutineNameID = 18
+                },
+                new Routine
+                {
+                    ExerciseID = 6,
+                    RoutineNameID = 19
+                },
+                new Routine
+                {
+                    ExerciseID = 6,
+                    RoutineNameID = 20
+                },
+                new Routine
+                {
+                    ExerciseID = 6,
+                    RoutineNameID = 21
+                }
                  );
 
             // Brandon - please seed data for Rating
