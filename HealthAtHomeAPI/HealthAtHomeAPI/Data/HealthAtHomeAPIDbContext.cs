@@ -107,15 +107,15 @@ namespace HealthAtHomeAPI.Data
 
 
 
-                    new Exercises
-                    {
-                        ID = 6,
-                        ExerciseName = "Squat",
-                        Sets = 3,
-                        Reps = 10,
-                        Image = "test",
-                        Description = "Stand with feet slightly wider than shoulder width apart, sit back in an imaginary chair. Press feet into the ground to stand back up."
-                    },
+                new Exercises
+                {
+                    ID = 6,
+                    ExerciseName = "Squat",
+                    Sets = 3,
+                    Reps = 10,
+                    Image = "test",
+                    Description = "Stand with feet slightly wider than shoulder width apart, sit back in an imaginary chair. Press feet into the ground to stand back up."
+                },
                 new Exercises
                 {
                     ID = 7,
@@ -153,15 +153,15 @@ namespace HealthAtHomeAPI.Data
                     Description = "Stand in good posture, weight optional. Bend forward, keeping knees straight and back flat. Return to standing, keeping your knees straight."
                 },
 
-                    new Exercises
-                    {
-                        ID = 11,
-                        ExerciseName = "Bridging with leg extensions",
-                        Sets = 3,
-                        Reps = 10,
-                        Image = "test",
-                        Description = "Lie on your back with knees bent and feet flat. Lift glutes off floor and keeping hips square, straighten one leg. Lower back down and repeat on the other side."
-                    },
+                new Exercises
+                {
+                    ID = 11,
+                    ExerciseName = "Bridging with leg extensions",
+                    Sets = 3,
+                    Reps = 10,
+                    Image = "test",
+                    Description = "Lie on your back with knees bent and feet flat. Lift glutes off floor and keeping hips square, straighten one leg. Lower back down and repeat on the other side."
+                },
                 new Exercises
                 {
                     ID = 12,
@@ -199,15 +199,15 @@ namespace HealthAtHomeAPI.Data
                     Description = "Sit with trunk straight and feet flat on the floor. Lean back slightly, holding a weight (optional). Move the weight from the left side of your body to the right side of your body back and forth."
                 },
 
-                    new Exercises
-                    {
-                        ID = 16,
-                        ExerciseName = "Cat & Cow",
-                        Sets = 1,
-                        Reps = 10,
-                        Image = "test",
-                        Description = "Begin on hands and knees. Lower your belly and lift your head, then reverse the motion by rounding your back towards the ceiling and dropping your head. Repeat back and forth."
-                    },
+                new Exercises
+                {
+                    ID = 16,
+                    ExerciseName = "Cat & Cow",
+                    Sets = 1,
+                    Reps = 10,
+                    Image = "test",
+                    Description = "Begin on hands and knees. Lower your belly and lift your head, then reverse the motion by rounding your back towards the ceiling and dropping your head. Repeat back and forth."
+                },
                 new Exercises
                 {
                     ID = 17,
