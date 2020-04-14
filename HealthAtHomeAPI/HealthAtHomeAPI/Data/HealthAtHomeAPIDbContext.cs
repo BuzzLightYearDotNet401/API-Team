@@ -23,15 +23,86 @@ namespace HealthAtHomeAPI.Data
             modelBuilder.Entity<Routine>().HasKey(x => new { x.ExerciseID });
             //modelBuilder.Entity<HotelRoom>().HasKey(x => new { x.HotelID, x.RoomID });
 
+            modelBuilder.Entity<RoutineName>().HasData(
+                new RoutineName
+                {
+                    ID = 1,
+                    NameOfRoutine = "Upper Body Workout"
+                },
+                new RoutineName
+                {
+                    ID = 2,
+                    NameOfRoutine = "Lower Body Workout"
+                },
+                new RoutineName
+                {
+                    ID = 3,
+                    NameOfRoutine = "Glutes"
+                },
+                new RoutineName
+                {
+                    ID = 4,
+                    NameOfRoutine = "Abs"
+                },
+                new RoutineName
+                {
+                    ID = 5,
+                    NameOfRoutine = "Stretching"
+                },
+                 new RoutineName
+                {
+                    ID = 6,
+                    NameOfRoutine = "Yoga"
+                }
+                );
+
+
+
             modelBuilder.Entity<Exercises>().HasData(
                 new Exercises
                 {
                     ID = 1,
                     ExerciseName = "Bicep Curls",
                     Sets = 3,
-                    Reps = 5,
+                    Reps = 10,
                     Image = "test",
-                    Description = "Bring hand to shoulder"
+                    Description = "Hold a gallon of milk at your side with arms straight and palm forward, bend your elbow bring the weight toward your shoulder. Repeat."
+                },
+                new Exercises
+                {
+                    ID = 2,
+                    ExerciseName = "Tricep Extensions",
+                    Sets = 3,
+                    Reps = 10,
+                    Image = "test",
+                    Description = "Pose at a partial squat bending the waist, pin your elbow at you side, straighten your arm with your weight in hand."
+                },
+                new Exercises
+                {
+                    ID = 3,
+                    ExerciseName = "Push Ups",
+                    Sets = 3,
+                    Reps = 10,
+                    Image = "test",
+                    Description = "Begin in a plank position with hands slightly wider than shoulder width apart, keeping your core straight, bend your elbows to your sides, lowering yourself to the floor and push up."
+                },
+                new Exercises
+                {
+                    ID = 4,
+                    ExerciseName = "Dips",
+                    Sets = 3,
+                    Reps = 10,
+                    Image = "test",
+                    Description = "On either a bed or a couch, place hands on the edge, bend your elbows, lowering yourself toward the floor in a reverse plank position. Press into your hands to return to a neutral position."
+                },
+                new Exercises
+                {
+                    ID = 5,
+                    ExerciseName = "Over Head Press",
+                    Sets = 3,
+                    Reps = 10,
+                    Image = "test",
+                    Description = "Bring weight shoulders, straighten arms pressing weight over head."
                 }
                 );
 
@@ -42,6 +113,9 @@ namespace HealthAtHomeAPI.Data
                      RoutineNameID = 1
                  }
                  );
+
+
+
         }
 
         /// <summary>

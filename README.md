@@ -127,6 +127,7 @@ Unit testing is included in the AmandaFE/FrontendTesting project using the xUnit
 ---
 
 ## Change Log
+1.2: *Seeded dummy data into the database for deployment and deployed web app and database on azure* - 13 April 2020  
 1.1: *Created initial skeleton for our database* - 12 April 2020   
 
 ---
