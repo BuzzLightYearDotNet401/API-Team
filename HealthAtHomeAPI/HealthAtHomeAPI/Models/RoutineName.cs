@@ -8,6 +8,6 @@ namespace HealthAtHomeAPI.Models
     public class RoutineName
     {
         public int ID { get; set; }
-        public string RoutineNames { get; set; }
+        public string NameOfRoutine { get; set; }
     }
 }
