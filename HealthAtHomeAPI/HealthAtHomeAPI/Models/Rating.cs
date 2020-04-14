@@ -11,7 +11,6 @@ namespace HealthAtHomeAPI.Models
         public int UserID { get; set; }
         public int RoutineID { get; set; }
         public StarRating StarRating { get; set; }
-        public bool IsCurrent { get; set; }
 
         // nav props
         public User Users { get; set; }

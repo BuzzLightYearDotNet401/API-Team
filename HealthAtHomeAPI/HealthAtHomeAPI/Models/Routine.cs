@@ -10,5 +10,10 @@ namespace HealthAtHomeAPI.Models
         public int RoutineNameID { get; set; }
         public int ExerciseID { get; set; }
 
+        // Nav props
+
+        public RoutineName RoutineNames { get; set; }
+        public List<Exercises> Exercises { get; set; }
+
     }
 }
