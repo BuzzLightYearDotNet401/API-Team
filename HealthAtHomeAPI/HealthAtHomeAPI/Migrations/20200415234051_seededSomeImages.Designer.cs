@@ -4,14 +4,16 @@ using HealthAtHomeAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HealthAtHomeAPI.Migrations
 {
     [DbContext(typeof(HealthAtHomeAPIDbContext))]
-    partial class HealthAtHomeAPIDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200415234051_seededSomeImages")]
+    partial class seededSomeImages
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -194,7 +196,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 16,
                             Description = "Begin on hands and knees. Lower your belly and lift your head, then reverse the motion by rounding your back towards the ceiling and dropping your head. Repeat back and forth.",
                             ExerciseName = "Cat & Cow",
-                            Image = "./assets/Yoga2.JPEG",
+                            Image = "./Assets/Yoga2.jpg",
                             Reps = 10,
                             Sets = 1
                         },
@@ -203,7 +205,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 17,
                             Description = "Begin on hands and knees. Push down into your hands and knees, lifting your trunk into the air. Breathe deeply.",
                             ExerciseName = "Downward Dog",
-                            Image = "./assets/Yoga3.JPEG",
+                            Image = "./Assets/Yoga3.jpg",
                             Reps = 3,
                             Sets = 1
                         },
@@ -212,7 +214,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 18,
                             Description = "Begin in a plank position with hands slightly wider than shoulder width apart, keeping your core straight, bend your elbows to your sides, lowering yourself to the floor.",
                             ExerciseName = "Chattaranga",
-                            Image = "./assets/Yoga6.JPEG",
+                            Image = "./Assets/Yoga6.jpg",
                             Reps = 1,
                             Sets = 3
                         },
@@ -221,7 +223,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 19,
                             Description = "Begin lying on your stomach with hands at your shoulders. Press into your hands and lift your trunk off the floor.",
                             ExerciseName = "Cobra",
-                            Image = "./assets/Yoga5.JPEG",
+                            Image = "./Assets/Yoga5.jpg",
                             Reps = 1,
                             Sets = 3
                         },
@@ -230,7 +232,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 20,
                             Description = "From a downward dog position, bring one foot between your hands and stand into a lunge.",
                             ExerciseName = "Warrior I",
-                            Image = "./assets/Yoga7.JPEG",
+                            Image = "./Assets/Yoga7.jpg",
                             Reps = 1,
                             Sets = 3
                         },
@@ -239,7 +241,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 21,
                             Description = "Sit with trunk straight and feet flat on the floor. Lean back slightly, and lift legs off the floor.",
                             ExerciseName = "Boat Pose",
-                            Image = "./assets/Yoga4.JPEG",
+                            Image = "./Assets/Yoga4.jpg",
                             Reps = 1,
                             Sets = 3
                         },
