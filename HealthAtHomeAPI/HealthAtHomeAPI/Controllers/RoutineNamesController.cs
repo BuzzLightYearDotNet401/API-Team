@@ -46,12 +46,12 @@ namespace HealthAtHomeAPI.Controllers
             return routineName;
         }
 
-        [HttpGet("{routineId}")]
-        public async Task<ActionResult<IEnumerable<ExerciseDTO>>> GetExercisesForRoutine(int routineId)
-        {
-            return await _routineName.GetExercisesForRoutines(routineId);
-        }
-        
+        //[HttpGet("{routineId}")]
+        //public async Task<ActionResult<IEnumerable<ExerciseDTO>>> GetExercisesForRoutine(int routineId)
+        //{
+        //    return await _routineName.GetExercisesForRoutines(routineId);
+        //}
+
         //    var exerciseList = await _context.RoutineNames.Where(x => x.RoutineNameId == routineId).ToListAsync();
 
         //    List<ExerciseDTO> exercisesInRoutine = new List<ExerciseDTO>();

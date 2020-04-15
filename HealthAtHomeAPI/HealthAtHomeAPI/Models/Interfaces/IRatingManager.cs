@@ -10,7 +10,7 @@ namespace HealthAtHomeAPI.Models.Interfaces
     {
         //get all routineNames where rating >=3
 
-        Task<List<RoutineName>> GetFavoriteRoutines(User user);
+        Task<List<RoutineNamesDTO>> GetFavoriteRoutines(User user);
 
 
         //update rating for a routine

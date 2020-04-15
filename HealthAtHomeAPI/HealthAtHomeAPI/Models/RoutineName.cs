@@ -9,5 +9,6 @@ namespace HealthAtHomeAPI.Models
     {
         public int RoutineNameId { get; set; }
         public string NameOfRoutine { get; set; }
+
     }
 }

@@ -36,7 +36,12 @@ namespace HealthAtHomeAPI.Models.Services
         public async Task<RoutineNamesDTO> GetRoutineById(int routineId)
         {
             RoutineName foundRoutine = await _context.RoutineNames.FindAsync(routineId);
-            return RnDTO(foundRoutine);
+            RoutineNamesDTO rnDto = new RoutineNamesDTO();
+            rnDto.RoutineNameId = foundRoutine.RoutineNameId;
+            rnDto.NameOfRoutine = foundRoutine.NameOfRoutine;
+
+            rnDto.listOfExercises = await GetExercisesForRoutines(foundRoutine.RoutineNameId);
+            return rnDto;
         }
 
         public async Task<List<ExerciseDTO>> GetExercisesForRoutines(int routineId)
@@ -47,7 +52,7 @@ namespace HealthAtHomeAPI.Models.Services
 
             foreach (var item in exerciseList)
             {
-                var exercise = await _exercise.GetExercisesById(item.RoutineNameId);
+                ExerciseDTO exercise = await _exercise.GetExercisesById(item.RoutineNameId);
                 exercisesInRoutine.Add(exercise);
             }
             return exercisesInRoutine;
