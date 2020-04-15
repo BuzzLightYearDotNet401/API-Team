@@ -12,5 +12,7 @@ namespace HealthAtHomeAPI.Models.Interfaces
 
         //get routine by ID
         Task<RoutineName> GetRoutineById(int routineId);
+
+        //Task<List<Exercises>> GetExercisesForRoutines(int id);
     }
 }

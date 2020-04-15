@@ -48,30 +48,14 @@ namespace HealthAtHomeAPI.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutRating(int id, Rating rating)
+        public async Task<IActionResult> PutRating(int id, Rating rating) //Update
         {
             if (id != rating.UserId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(rating).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!RatingExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await _rating.UpdateRating(id, rating);
 
             return NoContent();
         }
@@ -80,10 +64,24 @@ namespace HealthAtHomeAPI.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<Rating>> PostRating(int starRating, Rating rating)
+        public async Task<ActionResult<Rating>> PostRating(Rating rating)
         {
-            var result = _rating.UpdateRating(starRating, rating);
-
+            _context.Ratings.Add(rating);
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException)
+            {
+                if (RatingExists(rating.UserId))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    throw;
+                }
+            }
 
             return CreatedAtAction("GetRating", new { id = rating.UserId }, rating);
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HealthAtHomeAPI.Models.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace HealthAtHomeAPI.Models.Interfaces
 
 
         //update rating for a routine
-        Task UpdateRating(int starRating, Rating rating);
+        Task <RatingDTO>UpdateRating(int starRating, Rating rating);
 
     }
 }

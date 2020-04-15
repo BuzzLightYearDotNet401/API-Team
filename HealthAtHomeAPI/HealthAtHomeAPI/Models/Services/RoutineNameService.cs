@@ -1,4 +1,5 @@
 ﻿using HealthAtHomeAPI.Data;
+using HealthAtHomeAPI.Models.DTO;
 using HealthAtHomeAPI.Models.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,11 +12,14 @@ namespace HealthAtHomeAPI.Models.Services
     public class RoutineNameService : IRoutineNameManager
     {
         private HealthAtHomeAPIDbContext _context;
+        private IExerciseManager _exercise;
 
-        public RoutineNameService(HealthAtHomeAPIDbContext context)
+        public RoutineNameService(HealthAtHomeAPIDbContext context, IExerciseManager exercise)
         {
             _context = context;
+            _exercise = exercise;
         }
+
 
         public async Task<List<RoutineName>> GetAllRoutineNames()
         {
@@ -28,5 +32,6 @@ namespace HealthAtHomeAPI.Models.Services
             RoutineName foundRoutine = await _context.RoutineNames.FindAsync(routineId);
             return foundRoutine;
         }
+
     }
 }
