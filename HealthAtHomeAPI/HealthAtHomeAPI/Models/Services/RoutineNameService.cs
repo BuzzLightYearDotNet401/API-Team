@@ -46,13 +46,13 @@ namespace HealthAtHomeAPI.Models.Services
 
         public async Task<List<ExerciseDTO>> GetExercisesForRoutines(int routineId)
         {
-            var exerciseList = await _context.RoutineNames.Where(x => x.RoutineNameId == routineId).ToListAsync();
+            var exerciseList = await _context.Routines.Where(x => x.RoutineNameId == routineId).ToListAsync();
 
             List<ExerciseDTO> exercisesInRoutine = new List<ExerciseDTO>();
 
             foreach (var item in exerciseList)
             {
-                ExerciseDTO exercise = await _exercise.GetExercisesById(item.RoutineNameId);
+                ExerciseDTO exercise = await _exercise.GetExercisesById(item.ExerciseId);
                 exercisesInRoutine.Add(exercise);
             }
             return exercisesInRoutine;
