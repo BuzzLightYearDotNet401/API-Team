@@ -127,6 +127,8 @@ Unit testing is included in the AmandaFE/FrontendTesting project using the xUnit
 ---
 
 ## Change Log
+1.4: *users, Exercises, and RoutineNames successfully renders to Postman* - 14 April 2020  
+1.3: *Created the Interface, Service, and Controllers for Exercises, Rating, User, and RoutineName models* - 14 April 2020  
 1.2: *Seeded dummy data into the database for deployment and deployed web app and database on azure* - 13 April 2020  
 1.1: *Created initial skeleton for our database* - 12 April 2020   
 
