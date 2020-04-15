@@ -43,6 +43,7 @@ namespace HealthAtHomeAPI
 
             // mappings
             services.AddTransient<IExerciseManager, ExerciseService>();
+            services.AddTransient<IUserManager, UserService>();
 
         }
 

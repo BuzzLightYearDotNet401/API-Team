@@ -7,14 +7,14 @@ namespace HealthAtHomeAPI.Models
 {
     public class Rating
     {
-        public int ID { get; set; }
-        public int UserID { get; set; }
-        public int RoutineID { get; set; }
+        public int RatingId { get; set; }
+        public int UserId { get; set; }
+        public int RoutineNameId { get; set; }
         public StarRating StarRating { get; set; }
 
         // nav props
         public User Users { get; set; }
-        public Routine Routines { get; set; }
+        public RoutineName RoutineNames { get; set; }
     }
 
     public enum StarRating

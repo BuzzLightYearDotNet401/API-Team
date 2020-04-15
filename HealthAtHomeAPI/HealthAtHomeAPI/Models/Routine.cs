@@ -5,14 +5,15 @@ using System.Threading.Tasks;
 
 namespace HealthAtHomeAPI.Models
 {
+    //pure join table
     public class Routine
     {
-        public int RoutineNameID { get; set; }
-        public int ExerciseID { get; set; }
+        public int RoutineNameId { get; set; }
+        public int ExerciseId { get; set; }
 
         // Nav props
 
-        public RoutineName RoutineNames { get; set; }
+        public RoutineName RoutineName { get; set; }
         public List<Exercises> Exercises { get; set; }
 
     }

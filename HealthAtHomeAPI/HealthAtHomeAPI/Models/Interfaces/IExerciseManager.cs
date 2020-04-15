@@ -9,6 +9,7 @@ namespace HealthAtHomeAPI.Models.Interfaces
     {
         // READ - get exercises 
         Task<List<Exercises>> GetAllExercises();
+        Task<Exercises> GetExercisesById(int id);
 
     }
 }

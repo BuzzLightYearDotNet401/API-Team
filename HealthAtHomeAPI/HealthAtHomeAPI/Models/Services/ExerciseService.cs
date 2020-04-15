@@ -22,5 +22,11 @@ namespace HealthAtHomeAPI.Models.Services
         {
             return await _context.Exercises.ToListAsync();
         }
+
+        public async Task<Exercises> GetExercisesById(int id)
+        {
+            Exercises exercise = await _context.Exercises.FindAsync(id);
+            return exercise;
+        }
     }
 }

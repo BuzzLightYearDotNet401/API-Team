@@ -133,10 +133,10 @@ Unit testing is included in the AmandaFE/FrontendTesting project using the xUnit
 ---
 
 ## Authors
-Sue Tarazi  
-Allyson Reyes  
-Brandon Johnson  
-Robert Neilsen  
-Carrington Beard
+[Sue Tarazi](https://www.linkedin.com/in/sue-tarazi-b792b520/)  
+[Allyson Reyes](https://www.linkedin.com/in/allyson-reyes/)  
+[Brandon Johnson](https://www.linkedin.com/in/brandon-johnson-33a581109/)   
+[Robert Neilsen](https://www.linkedin.com/in/robertjnielsen/)  
+[Carrington Beard](https://www.linkedin.com/in/carrington-beard/)
 
 ---
