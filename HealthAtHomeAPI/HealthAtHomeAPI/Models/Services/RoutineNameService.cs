@@ -21,17 +21,48 @@ namespace HealthAtHomeAPI.Models.Services
         }
 
 
-        public async Task<List<RoutineName>> GetAllRoutineNames()
+        public async Task<List<RoutineNamesDTO>> GetAllRoutineNames()
         {
-            return await _context.RoutineNames.ToListAsync();
-           
+             var routineName = await _context.RoutineNames.ToListAsync();
+            List<RoutineNamesDTO> routineNamesDTO = new List<RoutineNamesDTO>();
+            foreach (var item in routineName)
+            {
+                routineNamesDTO.Add(RnDTO(item)); 
+            }
+            return routineNamesDTO;
+            
         }
 
-        public async Task<RoutineName> GetRoutineById(int routineId)
+        public async Task<RoutineNamesDTO> GetRoutineById(int routineId)
         {
             RoutineName foundRoutine = await _context.RoutineNames.FindAsync(routineId);
-            return foundRoutine;
+            return RnDTO(foundRoutine);
         }
 
+        public async Task<List<ExerciseDTO>> GetExercisesForRoutines(int routineId)
+        {
+            var exerciseList = await _context.RoutineNames.Where(x => x.RoutineNameId == routineId).ToListAsync();
+
+            List<ExerciseDTO> exercisesInRoutine = new List<ExerciseDTO>();
+
+            foreach (var item in exerciseList)
+            {
+                var exercise = await _exercise.GetExercisesById(item.RoutineNameId);
+                exercisesInRoutine.Add(exercise);
+            }
+            return exercisesInRoutine;
+        }
+
+        private RoutineNamesDTO RnDTO(RoutineName routineName)
+        {
+            RoutineNamesDTO rnDTO = new RoutineNamesDTO()
+            {
+                RoutineNameId = routineName.RoutineNameId,
+                NameOfRoutine = routineName.NameOfRoutine
+
+            };
+                return rnDTO;
+    }
+    
     }
 }

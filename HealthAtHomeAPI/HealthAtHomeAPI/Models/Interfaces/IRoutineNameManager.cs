@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HealthAtHomeAPI.Models.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,11 +9,12 @@ namespace HealthAtHomeAPI.Models.Interfaces
     public interface IRoutineNameManager
     {
         //get all routines
-        Task<List<RoutineName>> GetAllRoutineNames();
+        Task<List<RoutineNamesDTO>> GetAllRoutineNames();
 
         //get routine by ID
-        Task<RoutineName> GetRoutineById(int routineId);
+        Task<RoutineNamesDTO> GetRoutineById(int routineId);
 
-        //Task<List<Exercises>> GetExercisesForRoutines(int id);
+        //get all exercises in a given routine by Id
+        Task<List<ExerciseDTO>> GetExercisesForRoutines(int routineId);
     }
 }

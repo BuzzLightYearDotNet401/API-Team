@@ -12,5 +12,6 @@ namespace HealthAtHomeAPI.Models.Interfaces
         Task<List<ExerciseDTO>> GetAllExercises();
         Task<ExerciseDTO> GetExercisesById(int id);
 
+
     }
 }

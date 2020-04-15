@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using HealthAtHomeAPI.Data;
 using HealthAtHomeAPI.Models;
 using HealthAtHomeAPI.Models.Interfaces;
+using HealthAtHomeAPI.Models.DTO;
 
 namespace HealthAtHomeAPI.Controllers
 {
@@ -16,22 +17,24 @@ namespace HealthAtHomeAPI.Controllers
     public class RoutineNamesController : ControllerBase
     {
         private readonly IRoutineNameManager _routineName;
+        private readonly IExerciseManager _exercise;
 
-        public RoutineNamesController(IRoutineNameManager routineName)
+        public RoutineNamesController(IRoutineNameManager routineName, IExerciseManager exercise)
         {
             _routineName = routineName;
+            _exercise = exercise;
         }
 
         // GET: api/RoutineNames
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<RoutineName>>> GetRoutineNames()
+        public async Task<ActionResult<IEnumerable<RoutineNamesDTO>>> GetRoutineNames()
         {
             return await _routineName.GetAllRoutineNames();
         }
 
         // GET: api/RoutineNames/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<RoutineName>> GetRoutineName(int id)
+        public async Task<ActionResult<RoutineNamesDTO>> GetRoutineName(int id)
         {
             var routineName = await _routineName.GetRoutineById(id);
 
@@ -43,6 +46,23 @@ namespace HealthAtHomeAPI.Controllers
             return routineName;
         }
 
+        [HttpGet("{routineId}")]
+        public async Task<ActionResult<IEnumerable<ExerciseDTO>>> GetExercisesForRoutine(int routineId)
+        {
+            return await _routineName.GetExercisesForRoutines(routineId);
+        }
+        
+        //    var exerciseList = await _context.RoutineNames.Where(x => x.RoutineNameId == routineId).ToListAsync();
+
+        //    List<ExerciseDTO> exercisesInRoutine = new List<ExerciseDTO>();
+
+        //    foreach (var item in exerciseList)
+        //    {
+        //        var exercise = await _exercise.GetExercisesById(item.RoutineNameId);
+        //        exercisesInRoutine.Add(exercise);
+        //    }
+        //    return exercisesInRoutine;
+        //}
         //// PUT: api/RoutineNames/5
         //// To protect from overposting attacks, please enable the specific properties you want to bind to, for
         //// more details see https://aka.ms/RazorPagesCRUD.
