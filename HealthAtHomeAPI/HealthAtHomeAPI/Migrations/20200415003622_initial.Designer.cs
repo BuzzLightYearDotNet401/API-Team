@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HealthAtHomeAPI.Migrations
 {
     [DbContext(typeof(HealthAtHomeAPIDbContext))]
-    [Migration("20200414235746_initial")]
+    [Migration("20200415003622_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
