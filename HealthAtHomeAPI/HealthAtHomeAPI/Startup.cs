@@ -41,6 +41,13 @@ namespace HealthAtHomeAPI
             services.AddDbContext<HealthAtHomeAPIDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            // BRING IN THE NEWTONSOFT LIBRARY, 
+            // install-package microsoft.AspNetCore.Mvc.Newtonsoftjson
+            services.AddControllers()
+                .AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                );
+
             // mappings
             services.AddTransient<IExerciseManager, ExerciseService>();
             services.AddTransient<IUserManager, UserService>();

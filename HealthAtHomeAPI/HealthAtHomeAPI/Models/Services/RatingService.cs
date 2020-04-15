@@ -20,11 +20,11 @@ namespace HealthAtHomeAPI.Models.Services
             _routineName = routineName;
         }
 
-        public async Task<List<RoutineName>> GetFavoriteRoutines(User user)
+        public async Task<List<RoutineNamesDTO>> GetFavoriteRoutines(User user)
         {
             var favoriteRoutines = await _context.Ratings.Where(x => x.StarRating >= StarRating.ThreeStar).ToListAsync();
 
-            List<RoutineName> routineNamesList = new List<RoutineName>();
+            List<RoutineNamesDTO> routineNamesList = new List<RoutineNamesDTO>();
 
             foreach (var item in favoriteRoutines)
             {
