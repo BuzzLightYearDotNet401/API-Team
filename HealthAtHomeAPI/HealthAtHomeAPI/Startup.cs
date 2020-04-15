@@ -44,7 +44,7 @@ namespace HealthAtHomeAPI
             // mappings
             services.AddTransient<IExerciseManager, ExerciseService>();
             services.AddTransient<IUserManager, UserService>();
-
+            services.AddTransient<IRoutineNameManager, RoutineNameService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
