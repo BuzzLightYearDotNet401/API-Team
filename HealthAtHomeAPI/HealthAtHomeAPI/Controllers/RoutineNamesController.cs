@@ -15,12 +15,10 @@ namespace HealthAtHomeAPI.Controllers
     [ApiController]
     public class RoutineNamesController : ControllerBase
     {
-        private readonly HealthAtHomeAPIDbContext _context;
         private readonly IRoutineNameManager _routineName;
 
-        public RoutineNamesController(HealthAtHomeAPIDbContext context, IRoutineNameManager routineName)
+        public RoutineNamesController(IRoutineNameManager routineName)
         {
-            _context = context;
             _routineName = routineName;
         }
 

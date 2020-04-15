@@ -1,4 +1,5 @@
 ﻿using HealthAtHomeAPI.Data;
+using HealthAtHomeAPI.Models.DTO;
 using HealthAtHomeAPI.Models.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -20,18 +21,19 @@ namespace HealthAtHomeAPI.Models.Services
         }
 
         // allows us to create a user and save the changes
-        public async Task<User> CreateUser(User user)
+        public async Task<UserDTO> CreateUser(User user)
         {
+            var userDTO = UserDTO(user);
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
-            return user;
+            return userDTO;
         }
 
         // Read - gets the user specifically by id
-        public async Task<User> GetUserById(int userId)
+        public async Task<UserDTO> GetUserById(int userId)
         {
             User user = await _context.Users.FindAsync(userId);
-            return user;
+            return UserDTO(user);
         }
 
         /// <summary>
@@ -41,9 +43,19 @@ namespace HealthAtHomeAPI.Models.Services
         /// <returns></returns>
         public async Task DeleteUser(int userId)
         {
-            User user = await GetUserById(userId);
+            User user = await _context.Users.FindAsync(userId);
             _context.Users.Remove(user);
             await _context.SaveChangesAsync();            
+        }
+
+        private UserDTO UserDTO(User user)
+        {
+            UserDTO uDto = new UserDTO()
+            {
+                UserId = user.UserId,
+                Name = user.Name
+            };
+            return uDto;
         }
 
 

@@ -1,4 +1,5 @@
 ﻿using HealthAtHomeAPI.Data;
+using HealthAtHomeAPI.Models.DTO;
 using HealthAtHomeAPI.Models.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -18,15 +19,37 @@ namespace HealthAtHomeAPI.Models.Services
             _context = context;
         }
 
-        public async Task<List<Exercises>> GetAllExercises()
+        public async Task<List<ExerciseDTO>> GetAllExercises()
         {
-            return await _context.Exercises.ToListAsync();
+            var exercises = await _context.Exercises.ToListAsync();
+            List<ExerciseDTO> eDto = new List<ExerciseDTO>();
+            foreach (var item in exercises)
+            {
+                eDto.Add(ExerciseDTO(item));
+            }
+            return eDto;
         }
 
-        public async Task<Exercises> GetExercisesById(int id)
+        public async Task<ExerciseDTO> GetExercisesById(int id)
         {
             Exercises exercise = await _context.Exercises.FindAsync(id);
-            return exercise;
+            return ExerciseDTO(exercise);
+        }
+
+        private ExerciseDTO ExerciseDTO(Exercises exercise)
+        {
+            ExerciseDTO eDto = new ExerciseDTO()
+            {
+
+                ExerciseId = exercise.ExerciseId,
+                ExerciseName = exercise.ExerciseName,
+                Sets = exercise.Sets,
+                Reps = exercise.Reps,
+                Image = exercise.Image,
+                Description = exercise.Description
+
+            };
+            return eDto;
         }
     }
 }

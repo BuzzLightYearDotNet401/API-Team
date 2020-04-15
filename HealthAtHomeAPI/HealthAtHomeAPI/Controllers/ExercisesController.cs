@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using HealthAtHomeAPI.Data;
 using HealthAtHomeAPI.Models;
 using HealthAtHomeAPI.Models.Interfaces;
+using HealthAtHomeAPI.Models.DTO;
 
 namespace HealthAtHomeAPI.Controllers
 {
@@ -15,26 +16,24 @@ namespace HealthAtHomeAPI.Controllers
     [ApiController]
     public class ExercisesController : ControllerBase
     {
-        private readonly HealthAtHomeAPIDbContext _context;
         private readonly IExerciseManager _exercise;
 
 
-        public ExercisesController(HealthAtHomeAPIDbContext context, IExerciseManager exercise)
+        public ExercisesController(IExerciseManager exercise)
         {
-            _context = context;
             _exercise = exercise;
         }
 
         // GET: api/Exercises
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Exercises>>> GetExercises()
+        public async Task<ActionResult<IEnumerable<ExerciseDTO>>> GetExercises()
         {
             return await _exercise.GetAllExercises();
         }
 
         // GET: api/Exercises/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Exercises>> GetExercises(int id)
+        public async Task<ActionResult<ExerciseDTO>> GetExercises(int id)
         {
             var exercises = await _exercise.GetExercisesById(id);
 
@@ -49,66 +48,66 @@ namespace HealthAtHomeAPI.Controllers
         // PUT: api/Exercises/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutExercises(int id, Exercises exercises)
-        {
-            if (id != exercises.ExerciseId)
-            {
-                return BadRequest();
-            }
+        //[HttpPut("{id}")]
+        //public async Task<IActionResult> PutExercises(int id, Exercises exercises)
+        //{
+        //    if (id != exercises.ExerciseId)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            _context.Entry(exercises).State = EntityState.Modified;
+        //    _context.Entry(exercises).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ExercisesExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        await _context.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!ExercisesExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
 
-        // POST: api/Exercises
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPost]
-        public async Task<ActionResult<Exercises>> PostExercises(Exercises exercises)
-        {
-            _context.Exercises.Add(exercises);
-            await _context.SaveChangesAsync();
+        //// POST: api/Exercises
+        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for
+        //// more details see https://aka.ms/RazorPagesCRUD.
+        //[HttpPost]
+        //public async Task<ActionResult<Exercises>> PostExercises(Exercises exercises)
+        //{
+        //    _context.Exercises.Add(exercises);
+        //    await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetExercises", new { id = exercises.ExerciseId }, exercises);
-        }
+        //    return CreatedAtAction("GetExercises", new { id = exercises.ExerciseId }, exercises);
+        //}
 
-        // DELETE: api/Exercises/5
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<Exercises>> DeleteExercises(int id)
-        {
-            var exercises = await _context.Exercises.FindAsync(id);
-            if (exercises == null)
-            {
-                return NotFound();
-            }
+        //// DELETE: api/Exercises/5
+        //[HttpDelete("{id}")]
+        //public async Task<ActionResult<Exercises>> DeleteExercises(int id)
+        //{
+        //    var exercises = await _context.Exercises.FindAsync(id);
+        //    if (exercises == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            _context.Exercises.Remove(exercises);
-            await _context.SaveChangesAsync();
+        //    _context.Exercises.Remove(exercises);
+        //    await _context.SaveChangesAsync();
 
-            return exercises;
-        }
+        //    return exercises;
+        //}
 
-        private bool ExercisesExists(int id)
-        {
-            return _context.Exercises.Any(e => e.ExerciseId == id);
-        }
+        //private bool ExercisesExists(int id)
+        //{
+        //    return _context.Exercises.Any(e => e.ExerciseId == id);
+        //}
     }
 }

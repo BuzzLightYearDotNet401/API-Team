@@ -51,11 +51,11 @@ Audio clips from the movie **_Major Payne_** will play as you workout, forcing y
 ## Data Flow
 
 ##### ERD / Database Schema
-![ERD / Database Schema](https://drive.google.com/file/d/1O8BDyTp4romUhoyEl_c_brrT3GTC9AHr/view)
+![ERD / Database Schema](./assets/HealthAtHomeERD.png)
 
 
 ##### Domain Model
-![Domain Model](https://drive.google.com/file/d/1xR5UwLMqbt2lAnaBTB8_aguy8AN8UCQI/view)
+![Domain Model](./assets/DomainModel410.png)
 
 - When the user "logs in" to the app, a request is made to the Users table of the database and determines if that user exists.
   - If the user exists, then the username is returned, and they are "logged in".

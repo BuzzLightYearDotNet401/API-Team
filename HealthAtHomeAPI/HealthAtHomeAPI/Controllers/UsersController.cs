@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using HealthAtHomeAPI.Data;
 using HealthAtHomeAPI.Models;
 using HealthAtHomeAPI.Models.Interfaces;
+using HealthAtHomeAPI.Models.DTO;
 
 namespace HealthAtHomeAPI.Controllers
 {
@@ -36,7 +37,7 @@ namespace HealthAtHomeAPI.Controllers
 
         // GET: api/Users/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUser(int id)
+        public async Task<ActionResult<UserDTO>> GetUser(int id)
         {
             var user = await _user.GetUserById(id);
 
