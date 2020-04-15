@@ -20,48 +20,49 @@ namespace HealthAtHomeAPI.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Routine>().HasKey(x => new { x.ExerciseID });
+            modelBuilder.Entity<Routine>().HasKey(x => new { x.ExerciseId, x.RoutineNameId });
+            modelBuilder.Entity<Rating>().HasKey(x => new { x.UserId, x.RoutineNameId });
+            modelBuilder.Entity<Exercises>().HasKey(x => x.ExerciseId);
+
             //modelBuilder.Entity<HotelRoom>().HasKey(x => new { x.HotelID, x.RoomID });
 
             modelBuilder.Entity<RoutineName>().HasData(
                 new RoutineName
                 {
-                    ID = 1,
+                    RoutineNameId = 1,
                     NameOfRoutine = "Upper Body Workout"
                 },
                 new RoutineName
                 {
-                    ID = 2,
+                    RoutineNameId = 2,
                     NameOfRoutine = "Lower Body Workout"
                 },
                 new RoutineName
                 {
-                    ID = 3,
+                    RoutineNameId = 3,
                     NameOfRoutine = "Glutes"
                 },
                 new RoutineName
                 {
-                    ID = 4,
+                    RoutineNameId = 4,
                     NameOfRoutine = "Abs"
                 },
                 new RoutineName
                 {
-                    ID = 5,
+                    RoutineNameId = 5,
                     NameOfRoutine = "Stretching"
                 },
                  new RoutineName
                 {
-                    ID = 6,
+                     RoutineNameId = 6,
                     NameOfRoutine = "Yoga"
                 }
                 );
 
-
-
             modelBuilder.Entity<Exercises>().HasData(
                 new Exercises
                 {
-                    ID = 1,
+                    ExerciseId = 1,
                     ExerciseName = "Bicep Curls",
                     Sets = 3,
                     Reps = 10,
@@ -70,7 +71,7 @@ namespace HealthAtHomeAPI.Data
                 },
                 new Exercises
                 {
-                    ID = 2,
+                    ExerciseId = 2,
                     ExerciseName = "Tricep Extensions",
                     Sets = 3,
                     Reps = 10,
@@ -79,7 +80,7 @@ namespace HealthAtHomeAPI.Data
                 },
                 new Exercises
                 {
-                    ID = 3,
+                   ExerciseId= 3,
                     ExerciseName = "Push Ups",
                     Sets = 3,
                     Reps = 10,
@@ -88,7 +89,7 @@ namespace HealthAtHomeAPI.Data
                 },
                 new Exercises
                 {
-                    ID = 4,
+                   ExerciseId= 4,
                     ExerciseName = "Dips",
                     Sets = 3,
                     Reps = 10,
@@ -97,7 +98,7 @@ namespace HealthAtHomeAPI.Data
                 },
                 new Exercises
                 {
-                    ID = 5,
+                   ExerciseId= 5,
                     ExerciseName = "Over Head Press",
                     Sets = 3,
                     Reps = 10,
@@ -109,7 +110,7 @@ namespace HealthAtHomeAPI.Data
 
                 new Exercises
                 {
-                    ID = 6,
+                   ExerciseId= 6,
                     ExerciseName = "Squat",
                     Sets = 3,
                     Reps = 10,
@@ -118,7 +119,7 @@ namespace HealthAtHomeAPI.Data
                 },
                 new Exercises
                 {
-                    ID = 7,
+                   ExerciseId= 7,
                     ExerciseName = "Lunges",
                     Sets = 3,
                     Reps = 10,
@@ -127,7 +128,7 @@ namespace HealthAtHomeAPI.Data
                 },
                 new Exercises
                 {
-                    ID = 8,
+                   ExerciseId= 8,
                     ExerciseName = "Sidelying Leg lifts",
                     Sets = 3,
                     Reps = 10,
@@ -136,7 +137,7 @@ namespace HealthAtHomeAPI.Data
                 },
                 new Exercises
                 {
-                    ID = 9,
+                   ExerciseId= 9,
                     ExerciseName = "Calf Raises",
                     Sets = 3,
                     Reps = 10,
@@ -145,7 +146,7 @@ namespace HealthAtHomeAPI.Data
                 },
                 new Exercises
                 {
-                    ID = 10,
+                   ExerciseId= 10,
                     ExerciseName = "Good Mornings",
                     Sets = 3,
                     Reps = 10,
@@ -155,7 +156,7 @@ namespace HealthAtHomeAPI.Data
 
                 new Exercises
                 {
-                    ID = 11,
+                   ExerciseId= 11,
                     ExerciseName = "Bridging with leg extensions",
                     Sets = 3,
                     Reps = 10,
@@ -164,7 +165,7 @@ namespace HealthAtHomeAPI.Data
                 },
                 new Exercises
                 {
-                    ID = 12,
+                   ExerciseId= 12,
                     ExerciseName = "Arm and Leg Extension on All Fours",
                     Sets = 3,
                     Reps = 10,
@@ -173,7 +174,7 @@ namespace HealthAtHomeAPI.Data
                 },
                 new Exercises
                 {
-                    ID = 13,
+                   ExerciseId= 13,
                     ExerciseName = "Plank",
                     Sets = 3,
                     Reps = 10,
@@ -182,7 +183,7 @@ namespace HealthAtHomeAPI.Data
                 },
                 new Exercises
                 {
-                    ID = 14,
+                   ExerciseId= 14,
                     ExerciseName = "Pilates March",
                     Sets = 3,
                     Reps = 10,
@@ -191,7 +192,7 @@ namespace HealthAtHomeAPI.Data
                 },
                 new Exercises
                 {
-                    ID = 15,
+                   ExerciseId= 15,
                     ExerciseName = "Trunk Twists",
                     Sets = 3,
                     Reps = 10,
@@ -201,7 +202,7 @@ namespace HealthAtHomeAPI.Data
 
                 new Exercises
                 {
-                    ID = 16,
+                   ExerciseId= 16,
                     ExerciseName = "Cat & Cow",
                     Sets = 1,
                     Reps = 10,
@@ -210,7 +211,7 @@ namespace HealthAtHomeAPI.Data
                 },
                 new Exercises
                 {
-                    ID = 17,
+                   ExerciseId= 17,
                     ExerciseName = "Downward Dog",
                     Sets = 1,
                     Reps = 3,
@@ -219,7 +220,7 @@ namespace HealthAtHomeAPI.Data
                 },
                 new Exercises
                 {
-                    ID = 18,
+                   ExerciseId= 18,
                     ExerciseName = "Chattaranga",
                     Sets = 3,
                     Reps = 1,
@@ -228,7 +229,7 @@ namespace HealthAtHomeAPI.Data
                 },
                 new Exercises
                 {
-                    ID = 19,
+                   ExerciseId= 19,
                     ExerciseName = "Cobra",
                     Sets = 3,
                     Reps = 1,
@@ -237,7 +238,7 @@ namespace HealthAtHomeAPI.Data
                 },
                 new Exercises
                 {
-                    ID = 20,
+                   ExerciseId= 20,
                     ExerciseName = "Warrior I",
                     Sets = 3,
                     Reps = 1,
@@ -247,7 +248,7 @@ namespace HealthAtHomeAPI.Data
 
                 new Exercises
                 {
-                    ID = 21,
+                   ExerciseId= 21,
                     ExerciseName = "Boat Pose",
                     Sets = 3,
                     Reps = 1,
@@ -257,7 +258,7 @@ namespace HealthAtHomeAPI.Data
 
                 new Exercises
                 {
-                    ID = 22,
+                   ExerciseId= 22,
                     ExerciseName = "Quad Stretch",
                     Sets = 3,
                     Reps = 1,
@@ -267,7 +268,7 @@ namespace HealthAtHomeAPI.Data
 
                 new Exercises
                 {
-                    ID = 23,
+                   ExerciseId= 23,
                     ExerciseName = "Adductor Stretch",
                     Sets = 3,
                     Reps = 1,
@@ -280,172 +281,175 @@ namespace HealthAtHomeAPI.Data
             modelBuilder.Entity<Routine>().HasData(
                  new Routine
                  {
-                     ExerciseID = 1,
-                     RoutineNameID = 1
+                     ExerciseId = 1,
+                     RoutineNameId = 1
                  },
                 new Routine
                 {
-                    ExerciseID = 1,
-                    RoutineNameID = 2
+                    ExerciseId = 2,
+                    RoutineNameId = 1
                 },
                 new Routine
                 {
-                    ExerciseID = 1,
-                    RoutineNameID = 3
+                    ExerciseId = 3,
+                    RoutineNameId = 1
                 },
                 new Routine
                 {
-                    ExerciseID = 1,
-                    RoutineNameID = 4
+                    ExerciseId = 4,
+                    RoutineNameId = 1
                 },
                 new Routine
                 {
-                    ExerciseID = 1,
-                    RoutineNameID = 5
+                    ExerciseId = 5,
+                    RoutineNameId = 1
                 },
                 new Routine
                 {
-                    ExerciseID = 2,
-                    RoutineNameID = 6
+                    ExerciseId = 6,
+                    RoutineNameId = 2
                 },
                 new Routine
                 {
-                    ExerciseID = 2,
-                    RoutineNameID = 7
+                    ExerciseId = 7,
+                    RoutineNameId = 2
                 },
                 new Routine
                 {
-                    ExerciseID = 2,
-                    RoutineNameID = 8
+                    ExerciseId = 8,
+                    RoutineNameId = 2
                 },
                 new Routine
                 {
-                    ExerciseID = 2,
-                    RoutineNameID = 9
+                    ExerciseId = 9,
+                    RoutineNameId = 2
                 },
                 new Routine
                 {
-                    ExerciseID = 2,
-                    RoutineNameID = 10
+                    ExerciseId = 10,
+                    RoutineNameId = 2
                 },
                 new Routine
                 {
-                    ExerciseID = 3,
-                    RoutineNameID = 8
+                    ExerciseId = 8,
+                    RoutineNameId = 3
                 },
                 new Routine
                 {
-                    ExerciseID = 3,
-                    RoutineNameID = 10
+                    ExerciseId = 10,
+                    RoutineNameId = 3
                 },
                 new Routine
                 {
-                    ExerciseID = 3,
-                    RoutineNameID = 11
+                    ExerciseId = 11,
+                    RoutineNameId = 3
                 },
                 new Routine
                 {
-                    ExerciseID = 3,
-                    RoutineNameID = 12
+                    ExerciseId = 12,
+                    RoutineNameId = 3
                 },
                 new Routine
                 {
-                    ExerciseID = 4,
-                    RoutineNameID = 11
+                    ExerciseId = 11,
+                    RoutineNameId = 4
                 },
                 new Routine
                 {
-                    ExerciseID = 4,
-                    RoutineNameID = 12
+                    ExerciseId = 12,
+                    RoutineNameId = 4
                 },
                 new Routine
                 {
-                    ExerciseID = 4,
-                    RoutineNameID = 13
+                    ExerciseId = 13,
+                    RoutineNameId = 4
                 },
                 new Routine
                 {
-                    ExerciseID = 4,
-                    RoutineNameID = 14
+                    ExerciseId = 14,
+                    RoutineNameId = 4
                 },
                 new Routine
                 {
-                    ExerciseID = 4,
-                    RoutineNameID = 15
+                    ExerciseId = 15,
+                    RoutineNameId = 4
                 },
                 new Routine
                 {
-                    ExerciseID = 4,
-                    RoutineNameID = 21
+                    ExerciseId = 21,
+                    RoutineNameId = 4
                 },
                 new Routine
                 {
-                    ExerciseID = 5,
-                    RoutineNameID = 17
+                    ExerciseId = 17,
+                    RoutineNameId = 5
                 },
                 new Routine
                 {
-                    ExerciseID = 5,
-                    RoutineNameID = 19
+                    ExerciseId = 19,
+                    RoutineNameId = 5
                 },
                 new Routine
                 {
-                    ExerciseID = 5,
-                    RoutineNameID = 22
+                    ExerciseId = 22,
+                    RoutineNameId = 5
                 },
                 new Routine
                 {
-                    ExerciseID = 5,
-                    RoutineNameID = 23
+                    ExerciseId = 23,
+                    RoutineNameId = 5
                 },
                 new Routine
                 {
-                    ExerciseID = 6,
-                    RoutineNameID = 16
+                    ExerciseId = 16,
+                    RoutineNameId = 6
                 },
                 new Routine
                 {
-                    ExerciseID = 6,
-                    RoutineNameID = 17
+                    ExerciseId = 17,
+                    RoutineNameId = 6
                 },
                 new Routine
                 {
-                    ExerciseID = 6,
-                    RoutineNameID = 18
+                    ExerciseId = 18,
+                    RoutineNameId = 6
                 },
                 new Routine
                 {
-                    ExerciseID = 6,
-                    RoutineNameID = 19
+                    ExerciseId = 19,
+                    RoutineNameId = 6
                 },
                 new Routine
                 {
-                    ExerciseID = 6,
-                    RoutineNameID = 20
+                    ExerciseId = 20,
+                    RoutineNameId = 6
                 },
                 new Routine
                 {
-                    ExerciseID = 6,
-                    RoutineNameID = 21
+                    ExerciseId = 21,
+                    RoutineNameId = 6
                 }
                  );
+
+
+
 
             // Brandon - please seed data for Rating
             modelBuilder.Entity<Rating>().HasData(
                  new Rating
                  {
-                       ID = 1,
-                       UserID = 1,
-                       RoutineID = 1,
+                       RatingId = 1,
+                       UserId = 1,
+                       RoutineNameId = 1,
                        StarRating = StarRating.FourStar
-    }
+                 }
                  );
 
             // Brandon - please seed data for User
             modelBuilder.Entity<User>().HasData(
                  new User
                  {
-                     ID = 1,
+                     UserId = 1,
                      Name = "test"
                  }
                  );

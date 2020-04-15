@@ -36,7 +36,7 @@ namespace HealthAtHomeAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Exercises>> GetExercises(int id)
         {
-            var exercises = await _context.Exercises.FindAsync(id);
+            var exercises = await _exercise.GetExercisesById(id);
 
             if (exercises == null)
             {
@@ -52,7 +52,7 @@ namespace HealthAtHomeAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutExercises(int id, Exercises exercises)
         {
-            if (id != exercises.ID)
+            if (id != exercises.ExerciseId)
             {
                 return BadRequest();
             }
@@ -87,7 +87,7 @@ namespace HealthAtHomeAPI.Controllers
             _context.Exercises.Add(exercises);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetExercises", new { id = exercises.ID }, exercises);
+            return CreatedAtAction("GetExercises", new { id = exercises.ExerciseId }, exercises);
         }
 
         // DELETE: api/Exercises/5
@@ -108,7 +108,7 @@ namespace HealthAtHomeAPI.Controllers
 
         private bool ExercisesExists(int id)
         {
-            return _context.Exercises.Any(e => e.ID == id);
+            return _context.Exercises.Any(e => e.ExerciseId == id);
         }
     }
 }
