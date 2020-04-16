@@ -46,23 +46,6 @@ namespace HealthAtHomeAPI.Controllers
             return routineName;
         }
 
-        //[HttpGet("{routineId}")]
-        //public async Task<ActionResult<IEnumerable<ExerciseDTO>>> GetExercisesForRoutine(int routineId)
-        //{
-        //    return await _routineName.GetExercisesForRoutines(routineId);
-        //}
-
-        //    var exerciseList = await _context.RoutineNames.Where(x => x.RoutineNameId == routineId).ToListAsync();
-
-        //    List<ExerciseDTO> exercisesInRoutine = new List<ExerciseDTO>();
-
-        //    foreach (var item in exerciseList)
-        //    {
-        //        var exercise = await _exercise.GetExercisesById(item.RoutineNameId);
-        //        exercisesInRoutine.Add(exercise);
-        //    }
-        //    return exercisesInRoutine;
-        //}
         //// PUT: api/RoutineNames/5
         //// To protect from overposting attacks, please enable the specific properties you want to bind to, for
         //// more details see https://aka.ms/RazorPagesCRUD.

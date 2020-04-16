@@ -48,7 +48,7 @@ namespace HealthAtHomeAPI
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
                 );
 
-            // mappings
+            // mappings of our interfaces and services
             services.AddTransient<IExerciseManager, ExerciseService>();
             services.AddTransient<IUserManager, UserService>();
             services.AddTransient<IRoutineNameManager, RoutineNameService>();
