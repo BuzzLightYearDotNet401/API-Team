@@ -47,6 +47,13 @@ namespace HealthAtHomeAPI
             }
             );
 
+            //swagger
+            IServiceCollection serviceCollection = services.AddSwaggerGen(x =>
+            {
+                x.SwaggerDoc("v1", new OpenApiInfo { Title = "Health At Home", Description = "test" });
+            }) ;
+
+
             // registers our DbContext and the connection string is the path to our database server to where our database lives
             services.AddDbContext<HealthAtHomeAPIDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -58,11 +65,17 @@ namespace HealthAtHomeAPI
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
                 );
 
+
+
+
             // mappings of our interfaces and services
             services.AddTransient<IExerciseManager, ExerciseService>();
             services.AddTransient<IUserManager, UserService>();
             services.AddTransient<IRoutineNameManager, RoutineNameService>();
             services.AddTransient<IRatingManager, RatingService>();
+
+            
+
 
         }
 
@@ -76,9 +89,11 @@ namespace HealthAtHomeAPI
 
             app.UseRouting();
             app.UseSwagger();
+          
             app.UseSwaggerUI(x =>
             {
                 x.SwaggerEndpoint("/swagger/v1/swagger.json", "Heath At Home v1");
+
             });
 
             // this sets up our routes and sets our controller to home and sets the action to our Index with the id being nullable 
