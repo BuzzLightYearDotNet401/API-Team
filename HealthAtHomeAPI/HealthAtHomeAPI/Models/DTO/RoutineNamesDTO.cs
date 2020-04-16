@@ -10,7 +10,6 @@ namespace HealthAtHomeAPI.Models.DTO
 
         public int RoutineNameId { get; set; }
         public string NameOfRoutine { get; set; }
-
         public List<ExerciseDTO> listOfExercises { get; set; }
     
     }

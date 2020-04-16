@@ -10,7 +10,6 @@ namespace HealthAtHomeAPI.Models.DTO
         public int RatingId { get; set; }
         public int UserId { get; set; }
         public int RoutineNameId { get; set; }
-        // check with front if they want this as a number or string.
         public StarRating StarRating { get; set; } 
     }
 }
