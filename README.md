@@ -12,20 +12,7 @@ Swagger: https://healthathomeapi.azurewebsites.net/swagger/v1/swagger.json
 
 ---
 ## Web Application
-<!-- ***[Explain your app, should be at least a paragraph. What does it do? Why should I use? Sell your product!]***
-
-The web application consists of a frontend written in Razor views, HTML, CSS,
-Bootstrap, Popper, and jQuery. The backend was written in C# using ASP.NET Core 2, Entity Framework Core, and the MVC framework.
-
-An interface is provided to create new blog
-posts, view existing blog posts, edit existing blog posts, delete existing
-blog posts, and search by both keywords and usernames. All blog posts can be
-enriched using Azure Language Services (part of Microsoft's Cognitive Services
-suite), Bing Image API, and Parallel Dots (for automated tagging of posts via
-key phrases detected within the post's body). Image enrichments can be added
-based on the overall sentiment score (a range 0.0 - 1.0 related to the mood
-of the post) and key phrases / keywords detected in the posts. Optionally, users
-can choose to opt-out of these features for privacy or data collection concerns. -->
+***[Explain your app, should be at least a paragraph. What does it do? Why should I use? Sell your product!]***
 
 ---
 
@@ -68,19 +55,17 @@ Unit testing is included in the AmandaFE/FrontendTesting project using the xUnit
 ---
 
 ## Usage
-<!-- ***[Provide some images of your app with brief description as title]*** -->
 
-### Overview of Recent Posts
-<!-- ![Overview of Recent Posts](https://via.placeholder.com/500x250) -->
+### Exercise API
+![Exercise API](./assets/apiExercises.png)
 
-### Creating a Post
-<!-- ![Post Creation](https://via.placeholder.com/500x250) -->
+### RoutineName API
+**List of Routines**
+![](./assets/apiAllRoutines.png)  
 
-### Enriching a Post
-<!-- ![Enriching Post](https://via.placeholder.com/500x250) -->
-
-### Viewing Post Details
-<!-- ![Details of Post](https://via.placeholder.com/500x250) -->
+**List of Routines by ID**
+![](./assets/apiAllRoutinesById.png)  
+When getting a Routine Name by ID, we are able to see the list of exercises associated with that ID. 
 
 ---
 ## Data Flow (Frontend, Backend, REST API)
