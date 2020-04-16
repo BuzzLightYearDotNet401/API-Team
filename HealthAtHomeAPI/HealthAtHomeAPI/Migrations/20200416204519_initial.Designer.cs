@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HealthAtHomeAPI.Migrations
 {
     [DbContext(typeof(HealthAtHomeAPIDbContext))]
-    [Migration("20200415003622_initial")]
+    [Migration("20200416204519_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -61,7 +61,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 1,
                             Description = "Hold a gallon of milk at your side with arms straight and palm forward, bend your elbow bring the weight toward your shoulder. Repeat.",
                             ExerciseName = "Bicep Curls",
-                            Image = "test",
+                            Image = "/Assets/Poses/Curls.jpg",
                             Reps = 10,
                             Sets = 3
                         },
@@ -70,7 +70,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 2,
                             Description = "Pose at a partial squat bending the waist, pin your elbow at you side, straighten your arm with your weight in hand.",
                             ExerciseName = "Tricep Extensions",
-                            Image = "test",
+                            Image = "/Assets/Poses/TricepExtension.jpg",
                             Reps = 10,
                             Sets = 3
                         },
@@ -79,7 +79,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 3,
                             Description = "Begin in a plank position with hands slightly wider than shoulder width apart, keeping your core straight, bend your elbows to your sides, lowering yourself to the floor and push up.",
                             ExerciseName = "Push Ups",
-                            Image = "test",
+                            Image = "/Assets/Poses/PushUp.jpg",
                             Reps = 10,
                             Sets = 3
                         },
@@ -88,7 +88,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 4,
                             Description = "On either a bed or a couch, place hands on the edge, bend your elbows, lowering yourself toward the floor in a reverse plank position. Press into your hands to return to a neutral position.",
                             ExerciseName = "Dips",
-                            Image = "test",
+                            Image = "/Assets/Poses/Dips.jpg",
                             Reps = 10,
                             Sets = 3
                         },
@@ -97,7 +97,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 5,
                             Description = "Bring weight shoulders, straighten arms pressing weight over head.",
                             ExerciseName = "Over Head Press",
-                            Image = "test",
+                            Image = "/Assets/Poses/OverHeadPress.jpg",
                             Reps = 10,
                             Sets = 3
                         },
@@ -106,7 +106,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 6,
                             Description = "Stand with feet slightly wider than shoulder width apart, sit back in an imaginary chair. Press feet into the ground to stand back up.",
                             ExerciseName = "Squat",
-                            Image = "test",
+                            Image = "/Assets/Poses/Squat.jpg",
                             Reps = 10,
                             Sets = 3
                         },
@@ -115,7 +115,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 7,
                             Description = "Stand in good posture. Step forward and bend both knees to 90 degrees, keeping trunk upright.",
                             ExerciseName = "Lunges",
-                            Image = "test",
+                            Image = "/Assets/Poses/Lunge.jpg",
                             Reps = 10,
                             Sets = 3
                         },
@@ -124,7 +124,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 8,
                             Description = "Begin lying on your side with bottom knee bent and top leg straight in line with your trunk. Hold a weight on the outside of your thigh. Lift your top leg up and back, keeping your knee straight.",
                             ExerciseName = "Sidelying Leg lifts",
-                            Image = "test",
+                            Image = "/Assets/Poses/SidelyingLegLift.jpg",
                             Reps = 10,
                             Sets = 3
                         },
@@ -133,7 +133,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 9,
                             Description = "Place the balls of your feet at the edge of a stair step. Lower your heels below the plane of the step, then push into the balls of your feet to rise back up.",
                             ExerciseName = "Calf Raises",
-                            Image = "test",
+                            Image = "/Assets/Poses/CalfRaise.jpg",
                             Reps = 10,
                             Sets = 3
                         },
@@ -142,7 +142,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 10,
                             Description = "Stand in good posture, weight optional. Bend forward, keeping knees straight and back flat. Return to standing, keeping your knees straight.",
                             ExerciseName = "Good Mornings",
-                            Image = "test",
+                            Image = "/Assets/Poses/GoodMorning.jpg",
                             Reps = 10,
                             Sets = 3
                         },
@@ -151,7 +151,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 11,
                             Description = "Lie on your back with knees bent and feet flat. Lift glutes off floor and keeping hips square, straighten one leg. Lower back down and repeat on the other side.",
                             ExerciseName = "Bridging with leg extensions",
-                            Image = "test",
+                            Image = "/Assets/Poses/BridgeLegExtension.jpg",
                             Reps = 10,
                             Sets = 3
                         },
@@ -160,7 +160,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 12,
                             Description = "Begin on hands and knees, hands underneath shoulders, knees underneath hips. Lift opposite arm and leg. Hold for 3 seconds, then lower back down.",
                             ExerciseName = "Arm and Leg Extension on All Fours",
-                            Image = "test",
+                            Image = "/Assets/Poses/ArmLegExtension.jpg",
                             Reps = 10,
                             Sets = 3
                         },
@@ -169,7 +169,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 13,
                             Description = "Begin on hands and knees, straighten one leg onto the ball of your foot, then the other. Squeeze gluteals and press hands into the floor, keeping your trunk and pelvis in neutral. Hold for up to 1 minute.",
                             ExerciseName = "Plank",
-                            Image = "test",
+                            Image = "/Assets/Poses/Plank.jpg",
                             Reps = 10,
                             Sets = 3
                         },
@@ -178,7 +178,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 14,
                             Description = "Lie on your back and alternate lifting your legs to hip height. Keep your knees bent.",
                             ExerciseName = "Pilates March",
-                            Image = "test",
+                            Image = "/Assets/Poses/PilatesRun.jpg",
                             Reps = 10,
                             Sets = 3
                         },
@@ -187,7 +187,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 15,
                             Description = "Sit with trunk straight and feet flat on the floor. Lean back slightly, holding a weight (optional). Move the weight from the left side of your body to the right side of your body back and forth.",
                             ExerciseName = "Trunk Twists",
-                            Image = "test",
+                            Image = "/Assets/Poses/TrunkTwist.jpg",
                             Reps = 10,
                             Sets = 3
                         },
@@ -196,7 +196,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 16,
                             Description = "Begin on hands and knees. Lower your belly and lift your head, then reverse the motion by rounding your back towards the ceiling and dropping your head. Repeat back and forth.",
                             ExerciseName = "Cat & Cow",
-                            Image = "test",
+                            Image = "/Assets/Poses/Yoga2.JPEG",
                             Reps = 10,
                             Sets = 1
                         },
@@ -205,7 +205,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 17,
                             Description = "Begin on hands and knees. Push down into your hands and knees, lifting your trunk into the air. Breathe deeply.",
                             ExerciseName = "Downward Dog",
-                            Image = "test",
+                            Image = "/Assets/Poses/Yoga3.JPEG",
                             Reps = 3,
                             Sets = 1
                         },
@@ -214,7 +214,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 18,
                             Description = "Begin in a plank position with hands slightly wider than shoulder width apart, keeping your core straight, bend your elbows to your sides, lowering yourself to the floor.",
                             ExerciseName = "Chattaranga",
-                            Image = "test",
+                            Image = "/Assets/Poses/Yoga6.JPEG",
                             Reps = 1,
                             Sets = 3
                         },
@@ -223,7 +223,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 19,
                             Description = "Begin lying on your stomach with hands at your shoulders. Press into your hands and lift your trunk off the floor.",
                             ExerciseName = "Cobra",
-                            Image = "test",
+                            Image = "/Assets/Poses/Yoga5.JPEG",
                             Reps = 1,
                             Sets = 3
                         },
@@ -232,7 +232,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 20,
                             Description = "From a downward dog position, bring one foot between your hands and stand into a lunge.",
                             ExerciseName = "Warrior I",
-                            Image = "test",
+                            Image = "/Assets/Poses/Yoga7.JPEG",
                             Reps = 1,
                             Sets = 3
                         },
@@ -241,7 +241,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 21,
                             Description = "Sit with trunk straight and feet flat on the floor. Lean back slightly, and lift legs off the floor.",
                             ExerciseName = "Boat Pose",
-                            Image = "test",
+                            Image = "/Assets/Poses/Yoga4.JPEG",
                             Reps = 1,
                             Sets = 3
                         },
@@ -250,7 +250,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 22,
                             Description = "Stand in good posture. Using your hand, bring your foot towards your gluteals, keeping knees together.",
                             ExerciseName = "Quad Stretch",
-                            Image = "test",
+                            Image = "/Assets/Poses/QuadStretch.jpg",
                             Reps = 1,
                             Sets = 3
                         },
@@ -259,7 +259,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 23,
                             Description = "Perform a side lunge and allow the muscles on your inner thigh to stretch.",
                             ExerciseName = "Adductor Stretch",
-                            Image = "test",
+                            Image = "/Assets/Poses/AdductorStretch.jpg",
                             Reps = 1,
                             Sets = 3
                         });

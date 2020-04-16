@@ -444,14 +444,14 @@ namespace HealthAtHomeAPI.Data
                        UserId = 1,
                        RoutineNameId = 1,
                        StarRating = StarRating.FourStar
-                 },
-                 new Rating
-                 {
-                       RatingId = 2,
-                       UserId = 1,
-                       RoutineNameId = 2,
-                       StarRating = StarRating.TwoStar
                  }
+                 //new Rating
+                 //{
+                 //      RatingId = 2,
+                 //      UserId = 1,
+                 //      RoutineNameId = 2,
+                 //      StarRating = StarRating.TwoStar
+                 //}
                  );
 
             // Brandon - please seed data for User

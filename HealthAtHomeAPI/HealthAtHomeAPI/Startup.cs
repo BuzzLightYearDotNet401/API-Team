@@ -47,12 +47,7 @@ namespace HealthAtHomeAPI
             }
             );
 
-            //swagger
-            IServiceCollection serviceCollection = services.AddSwaggerGen(x =>
-            {
-                x.SwaggerDoc("v1", new OpenApiInfo { Title = "Health At Home", Description = "test" });
-            }) ;
-
+            
 
             // registers our DbContext and the connection string is the path to our database server to where our database lives
             services.AddDbContext<HealthAtHomeAPIDbContext>(options =>
