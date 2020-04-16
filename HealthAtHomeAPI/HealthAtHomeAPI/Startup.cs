@@ -37,8 +37,15 @@ namespace HealthAtHomeAPI
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            
             // this adds our middleware
             services.AddMvc();
+            //Swagger
+            services.AddSwaggerGen(x =>
+            {
+                x.SwaggerDoc("v1", new OpenApiInfo { Title = "Health At Home", Description = "testing" });
+            }
+            );
 
             //swagger
             IServiceCollection serviceCollection = services.AddSwaggerGen(x =>
@@ -82,8 +89,11 @@ namespace HealthAtHomeAPI
 
             app.UseRouting();
             app.UseSwagger();
-            app.UseSwaggerUI(x => {
-                x.SwaggerEndpoint("/swagger/v1/swagger.json", "Health At Home v1");
+          
+            app.UseSwaggerUI(x =>
+            {
+                x.SwaggerEndpoint("/swagger/v1/swagger.json", "Heath At Home v1");
+
             });
 
             // this sets up our routes and sets our controller to home and sets the action to our Index with the id being nullable 
