@@ -17,17 +17,26 @@ namespace HealthAtHomeAPI.Controllers
     public class UsersController : ControllerBase
     {
         /// <summary>
-        /// Injecting the IUserManager interface
+        /// Bringing in the database and the IUserManager interface
         /// </summary>
         private readonly HealthAtHomeAPIDbContext _context;
         private readonly IUserManager _user;
 
+        /// <summary>
+        /// Injecting the database and the IUserManager interface
+        /// </summary>
+        /// <param name="context">variable assigned to the db</param>
+        /// <param name="user">variable assigned to the IUserManager interface</param>
         public UsersController(HealthAtHomeAPIDbContext context, IUserManager user)
         {
             _context = context;
             _user = user;
         }
 
+        /// <summary>
+        /// GET route to return all users
+        /// </summary>
+        /// <returns>Users</returns>
         // GET: api/Users
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
@@ -35,6 +44,11 @@ namespace HealthAtHomeAPI.Controllers
             return await _context.Users.ToListAsync();
         }
 
+        /// <summary>
+        /// GET route to return user by Id
+        /// </summary>
+        /// <param name="id">int Id</param>
+        /// <returns>User corresponding to Id</returns>
         // GET: api/Users/5
         [HttpGet("{id}")]
         public async Task<ActionResult<UserDTO>> GetUser(int id)
@@ -49,6 +63,12 @@ namespace HealthAtHomeAPI.Controllers
             return user;
         }
 
+        /// <summary>
+        /// PUT route to update user based on Id
+        /// </summary>
+        /// <param name="id">int Id</param>
+        /// <param name="user">string User</param>
+        /// <returns>Bad request if not found; no content if successful</returns>
         // PUT: api/Users/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
@@ -81,6 +101,11 @@ namespace HealthAtHomeAPI.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// POST route to create a user
+        /// </summary>
+        /// <param name="user">string user</param>
+        /// <returns>user</returns>
         // POST: api/Users
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
@@ -93,6 +118,11 @@ namespace HealthAtHomeAPI.Controllers
             return CreatedAtAction("GetUser", new { id = user.UserId }, user);
         }
 
+        /// <summary>
+        /// DELETE route to delete user by Id
+        /// </summary>
+        /// <param name="id">int Id</param>
+        /// <returns>No content</returns>
         // DELETE: api/Users/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<User>> DeleteUser(int id)
@@ -102,6 +132,11 @@ namespace HealthAtHomeAPI.Controllers
 
         }
 
+        /// <summary>
+        /// Boolean method to see if user exists based on Id
+        /// </summary>
+        /// <param name="id">Id</param>
+        /// <returns>True or False</returns>
         private bool UserExists(int id)
         {
             return _context.Users.Any(e => e.UserId == id);

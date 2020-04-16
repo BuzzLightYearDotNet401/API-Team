@@ -16,15 +16,23 @@ namespace HealthAtHomeAPI.Controllers
     [ApiController]
     public class RoutineNamesController : ControllerBase
     {
+        /// <summary>
+        /// Bringing in the IRoutineNameManager and IExerciseManager interfaces
+        /// </summary>
         private readonly IRoutineNameManager _routineName;
         private readonly IExerciseManager _exercise;
 
+        //Injecting the interfaces
         public RoutineNamesController(IRoutineNameManager routineName, IExerciseManager exercise)
         {
             _routineName = routineName;
             _exercise = exercise;
         }
 
+        /// <summary>
+        /// GET route to return all routine names
+        /// </summary>
+        /// <returns>list of routine names</returns>
         // GET: api/RoutineNames
         [HttpGet]
         public async Task<ActionResult<IEnumerable<RoutineNamesDTO>>> GetRoutineNames()
@@ -32,6 +40,11 @@ namespace HealthAtHomeAPI.Controllers
             return await _routineName.GetAllRoutineNames();
         }
 
+        /// <summary>
+        /// GET route to return routine by Id
+        /// </summary>
+        /// <param name="id">int Id</param>
+        /// <returns>routine corresponding to Id</returns>
         // GET: api/RoutineNames/5
         [HttpGet("{id}")]
         public async Task<ActionResult<RoutineNamesDTO>> GetRoutineName(int id)
