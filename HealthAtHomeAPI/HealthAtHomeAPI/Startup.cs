@@ -12,6 +12,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Swashbuckle.AspNetCore.Swagger;
+using Swashbuckle.Swagger;
+using Microsoft.OpenApi.Models;
 
 namespace HealthAtHomeAPI
 {
@@ -34,8 +37,15 @@ namespace HealthAtHomeAPI
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            
             // this adds our middleware
             services.AddMvc();
+            //Swagger
+            services.AddSwaggerGen(x =>
+            {
+                x.SwaggerDoc("v1", new OpenApiInfo { Title = "Health At Home", Description = "testing" });
+            }
+            );
 
             // registers our DbContext and the connection string is the path to our database server to where our database lives
             services.AddDbContext<HealthAtHomeAPIDbContext>(options =>
@@ -65,6 +75,11 @@ namespace HealthAtHomeAPI
             }
 
             app.UseRouting();
+            app.UseSwagger();
+            app.UseSwaggerUI(x =>
+            {
+                x.SwaggerEndpoint("/swagger/v1/swagger.json", "Heath At Home v1");
+            });
 
             // this sets up our routes and sets our controller to home and sets the action to our Index with the id being nullable 
             app.UseEndpoints(endpoints =>
