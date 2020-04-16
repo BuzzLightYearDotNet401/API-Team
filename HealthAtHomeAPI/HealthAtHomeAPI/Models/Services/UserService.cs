@@ -20,7 +20,11 @@ namespace HealthAtHomeAPI.Models.Services
             _context = context;
         }
 
-        // allows us to create a user and save the changes
+        /// <summary>
+        /// allows us to create a user and save the changes
+        /// </summary>
+        /// <param name="user">the user</param>
+        /// <returns>the created user</returns>
         public async Task<UserDTO> CreateUser(User user)
         {
             var userDTO = UserDTO(user);
@@ -29,7 +33,11 @@ namespace HealthAtHomeAPI.Models.Services
             return userDTO;
         }
 
-        // Read - gets the user specifically by id
+        /// <summary>
+        /// gets the user specifically by id
+        /// </summary>
+        /// <param name="userId">the user's id</param>
+        /// <returns>The user that was requested</returns>
         public async Task<UserDTO> GetUserById(int userId)
         {
             User user = await _context.Users.FindAsync(userId);
@@ -37,10 +45,9 @@ namespace HealthAtHomeAPI.Models.Services
         }
 
         /// <summary>
-        /// Deletes a user. It uses the GetUserById method from above and removes that user. Then saves the changes
+        /// Deletes a user. It finds that is, removes it, then saves the changes
         /// </summary>
-        /// <param name="userId"></param>
-        /// <returns></returns>
+        /// <param name="userId">the user's id</param>
         public async Task DeleteUser(int userId)
         {
             User user = await _context.Users.FindAsync(userId);
@@ -48,6 +55,11 @@ namespace HealthAtHomeAPI.Models.Services
             await _context.SaveChangesAsync();            
         }
 
+        /// <summary>
+        /// Allows us to normalize the user data
+        /// </summary>
+        /// <param name="user">the User Model</param>
+        /// <returns>Returns as a DTO</returns>
         private UserDTO UserDTO(User user)
         {
             UserDTO uDto = new UserDTO()

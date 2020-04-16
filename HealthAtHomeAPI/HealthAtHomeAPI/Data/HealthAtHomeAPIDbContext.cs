@@ -18,13 +18,15 @@ namespace HealthAtHomeAPI.Data
 
         }
 
+        /// <summary>
+        /// this method seeds data into our database. 
+        /// </summary>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Routine>().HasKey(x => new { x.ExerciseId, x.RoutineNameId });
             modelBuilder.Entity<Rating>().HasKey(x => new { x.UserId, x.RoutineNameId });
             modelBuilder.Entity<Exercises>().HasKey(x => x.ExerciseId);
 
-            //modelBuilder.Entity<HotelRoom>().HasKey(x => new { x.HotelID, x.RoomID });
 
             modelBuilder.Entity<RoutineName>().HasData(
                 new RoutineName
