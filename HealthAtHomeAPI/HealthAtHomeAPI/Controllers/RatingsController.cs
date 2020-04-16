@@ -15,22 +15,38 @@ namespace HealthAtHomeAPI.Controllers
     [ApiController]
     public class RatingsController : ControllerBase
     {
+        /// <summary>
+        /// Bringing in the database and IRatingManager interface
+        /// </summary>
         private readonly HealthAtHomeAPIDbContext _context;
         private readonly IRatingManager _rating;
+
+        /// <summary>
+        /// Injecting the database and IRatingManager interface
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="rating"></param>
         public RatingsController(HealthAtHomeAPIDbContext context, IRatingManager rating)
         {
             _context = context;
             _rating = rating;
         }
 
-        // GET: api/Ratings
+        /// <summary>
+        /// GET route to return a list of ratings
+        /// </summary>
+        /// <returns>a list of ratings</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Rating>>> GetRatings()
         {
             return await _context.Ratings.ToListAsync();
         }
 
-        // GET: api/Ratings/5
+        /// <summary>
+        /// GET route to get rating by Id
+        /// </summary>
+        /// <param name="id">int Id</param>
+        /// <returns>rating corresponding to Id</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Rating>> GetRating(int id)
         {
@@ -44,6 +60,12 @@ namespace HealthAtHomeAPI.Controllers
             return rating;
         }
 
+        /// <summary>
+        /// PUT route to update rating by Id
+        /// </summary>
+        /// <param name="id">int Id</param>
+        /// <param name="rating">enum Rating</param>
+        /// <returns>BadRequest if not found; Nothing if update is successful.</returns>
         // PUT: api/Ratings/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
@@ -60,6 +82,11 @@ namespace HealthAtHomeAPI.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// POST route to get a routine connected to their UserId
+        /// </summary>
+        /// <param name="rating">enum Rating</param>
+        /// <returns>routine</returns>
         // POST: api/Ratings
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
@@ -86,6 +113,11 @@ namespace HealthAtHomeAPI.Controllers
             return CreatedAtAction("GetRating", new { id = rating.UserId }, rating);
         }
 
+        /// <summary>
+        /// DELETE route to delete a rating 
+        /// </summary>
+        /// <param name="id">rating by Id</param>
+        /// <returns>returns NotFound if not found, otherwise returns rating</returns>
         // DELETE: api/Ratings/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Rating>> DeleteRating(int id)
@@ -102,6 +134,11 @@ namespace HealthAtHomeAPI.Controllers
             return rating;
         }
 
+        /// <summary>
+        /// Boolean method to see if rating exists
+        /// </summary>
+        /// <param name="id">int Id</param>
+        /// <returns>True or False</returns>
         private bool RatingExists(int id)
         {
             return _context.Ratings.Any(e => e.UserId == id);

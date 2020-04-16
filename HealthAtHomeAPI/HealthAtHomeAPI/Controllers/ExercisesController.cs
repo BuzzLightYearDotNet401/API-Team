@@ -12,26 +12,41 @@ using HealthAtHomeAPI.Models.DTO;
 
 namespace HealthAtHomeAPI.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
     public class ExercisesController : ControllerBase
     {
+        /// <summary>
+        /// Bringing in the IExerciseManager interface
+        /// </summary>
         private readonly IExerciseManager _exercise;
 
 
+        /// <summary>
+        /// Injecting the interface
+        /// </summary>
+        /// <param name="exercise"></param>
         public ExercisesController(IExerciseManager exercise)
         {
             _exercise = exercise;
         }
 
-        // GET: api/Exercises
+        /// <summary>
+        /// GET route to return all exercises
+        /// </summary>
+        /// <returns>A list of all exercises</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ExerciseDTO>>> GetExercises()
         {
             return await _exercise.GetAllExercises();
         }
 
-        // GET: api/Exercises/5
+        /// <summary>
+        /// GET route to get exercises by Id
+        /// </summary>
+        /// <param name="id">int Id</param>
+        /// <returns>Exercise corresponding to int Id</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<ExerciseDTO>> GetExercises(int id)
         {
