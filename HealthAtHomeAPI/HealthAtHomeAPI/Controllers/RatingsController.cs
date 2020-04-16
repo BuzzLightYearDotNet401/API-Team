@@ -94,21 +94,7 @@ namespace HealthAtHomeAPI.Controllers
         public async Task<ActionResult<Rating>> PostRating(Rating rating)
         {
             _context.Ratings.Add(rating);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (RatingExists(rating.UserId))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await _rating.CreateRating(rating);
 
             return CreatedAtAction("GetRating", new { id = rating.UserId }, rating);
         }

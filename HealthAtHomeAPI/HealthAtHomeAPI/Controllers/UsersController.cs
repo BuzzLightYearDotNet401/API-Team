@@ -110,10 +110,10 @@ namespace HealthAtHomeAPI.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<User>> PostUser(User user)
+        public async Task<ActionResult<UserDTO>> PostUser(User user)
         {
             _context.Users.Add(user);
-            await _context.SaveChangesAsync();
+            await _user.CreateUser(user);
 
             return CreatedAtAction("GetUser", new { id = user.UserId }, user);
         }
@@ -125,7 +125,7 @@ namespace HealthAtHomeAPI.Controllers
         /// <returns>No content</returns>
         // DELETE: api/Users/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<User>> DeleteUser(int id)
+        public async Task<ActionResult<UserDTO>> DeleteUser(int id)
         {
             await _user.DeleteUser(id);
             return NoContent();

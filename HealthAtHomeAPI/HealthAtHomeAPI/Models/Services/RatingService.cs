@@ -23,6 +23,15 @@ namespace HealthAtHomeAPI.Models.Services
             _routineName = routineName;
         }
 
+        public async Task<RatingDTO> CreateRating(Rating rating)
+        {
+            var ratingDTO = RatingDTO(rating);
+            //rating.UserId = userId; 
+            _context.Ratings.Add(rating);
+            await _context.SaveChangesAsync();
+            return ratingDTO;
+        }
+
         /// <summary>
         /// This method grabs all of the users favorite routines. It is queried to grad only routines that are rated 3 stars and up. We add it to a list and it is returned
         /// </summary>

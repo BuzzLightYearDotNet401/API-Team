@@ -208,7 +208,7 @@ namespace HealthAtHomeAPI.Data
                     ExerciseName = "Cat & Cow",
                     Sets = 1,
                     Reps = 10,
-                    Image = "~/Assets/Yoga2.JPEG",
+                    Image = "/Assets/Poses/Yoga2.JPEG",
                     Description = "Begin on hands and knees. Lower your belly and lift your head, then reverse the motion by rounding your back towards the ceiling and dropping your head. Repeat back and forth."
                 },
                 new Exercises
@@ -217,7 +217,7 @@ namespace HealthAtHomeAPI.Data
                     ExerciseName = "Downward Dog",
                     Sets = 1,
                     Reps = 3,
-                    Image = "~/Assets/Yoga3.JPEG",
+                    Image = "/Assets/Poses/Yoga3.JPEG",
                     Description = "Begin on hands and knees. Push down into your hands and knees, lifting your trunk into the air. Breathe deeply."
                 },
                 new Exercises
@@ -226,7 +226,7 @@ namespace HealthAtHomeAPI.Data
                     ExerciseName = "Chattaranga",
                     Sets = 3,
                     Reps = 1,
-                    Image = "~/Assets/Yoga6.JPEG",
+                    Image = "/Assets/Poses/Yoga6.JPEG",
                     Description = "Begin in a plank position with hands slightly wider than shoulder width apart, keeping your core straight, bend your elbows to your sides, lowering yourself to the floor."
                 },
                 new Exercises
@@ -235,7 +235,7 @@ namespace HealthAtHomeAPI.Data
                     ExerciseName = "Cobra",
                     Sets = 3,
                     Reps = 1,
-                    Image = "~/Assets/Yoga5.JPEG",
+                    Image = "/Assets/Poses/Yoga5.JPEG",
                     Description = "Begin lying on your stomach with hands at your shoulders. Press into your hands and lift your trunk off the floor."
                 },
                 new Exercises
@@ -244,7 +244,7 @@ namespace HealthAtHomeAPI.Data
                     ExerciseName = "Warrior I",
                     Sets = 3,
                     Reps = 1,
-                    Image = "~/Assets/Yoga7.JPEG",
+                    Image = "/Assets/Poses/Yoga7.JPEG",
                     Description = "From a downward dog position, bring one foot between your hands and stand into a lunge."
                 },
 
@@ -254,7 +254,7 @@ namespace HealthAtHomeAPI.Data
                     ExerciseName = "Boat Pose",
                     Sets = 3,
                     Reps = 1,
-                    Image = "~/Assets/Yoga4.JPEG",
+                    Image = "/Assets/Poses/Yoga4.JPEG",
                     Description = "Sit with trunk straight and feet flat on the floor. Lean back slightly, and lift legs off the floor."
                 },
 
@@ -444,6 +444,13 @@ namespace HealthAtHomeAPI.Data
                        UserId = 1,
                        RoutineNameId = 1,
                        StarRating = StarRating.FourStar
+                 },
+                 new Rating
+                 {
+                       RatingId = 2,
+                       UserId = 1,
+                       RoutineNameId = 2,
+                       StarRating = StarRating.TwoStar
                  }
                  );
 

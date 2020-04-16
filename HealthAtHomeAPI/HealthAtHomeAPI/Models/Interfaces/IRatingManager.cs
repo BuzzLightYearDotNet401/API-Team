@@ -8,6 +8,11 @@ namespace HealthAtHomeAPI.Models.Interfaces
 {
     public interface IRatingManager
     {
+
+        // create a rating 
+        Task<RatingDTO> CreateRating(Rating rating);
+
+
         //get all routineNames where rating >=3
 
         Task<List<RoutineNamesDTO>> GetFavoriteRoutines(User user);
