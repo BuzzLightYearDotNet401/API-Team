@@ -12,7 +12,13 @@ Swagger: https://healthathomeapi.azurewebsites.net/swagger/v1/swagger.json
 
 ---
 ## Web Application
-***[Explain your app, should be at least a paragraph. What does it do? Why should I use? Sell your product!]***
+Health at Home is an ASP.NET full stack web application developed with the health, fitness and sanity of our users in mind!
+
+With Health At Home, users can create a basic profile, and browse a collection of fitness routines that can be completed at home with little to no equipment.
+
+Users can also rate routines, and see a list of their favorite routines.
+
+Stay healthy, stay happy, and get those gains without endangering yourself, your loved ones, or others!
 
 ---
 
@@ -36,21 +42,25 @@ Clone this repository to your local machine.
 ```
 $ git clone https://github.com/BuzzLightYearDotNet401/API-Team.git
 ```
-Once downloaded, you can either use the dotnet CLI utilities or Visual Studio 2017 (or greater) to build the web application. The solution file is located in the AmandaFE subdirectory at the root of the repository.
+Once downloaded, you can either use the dotnet CLI utilities or Visual Studio 2019 to build the web application. The solution file is located in the `HealthAtHome` subdirectory at the root of the repository.
+
 ```
-cd YourRepo/YourProject
-dotnet build
+$ cd HealthAtHome/HealthAtHome
+$ dotnet build
 ```
-The dotnet tools will automatically restore any NuGet dependencies. Before running the application, the provided code-first migration will need to be applied to the SQL server of your choice configured in the /AmandaFE/AmandaFE/appsettings.json file. This requires the Microsoft.EntityFrameworkCore.Tools NuGet package and can be run from the NuGet Package Manager Console:
+
+The dotnet tools will automatically restore any NuGet dependencies. Before running the application, the provided code-first migration will need to be applied to the SQL server of your choice configured in the /HealthAtHome/HealthAtHome/appsettings.json file. This requires the Microsoft.EntityFrameworkCore.Tools NuGet package and can be run from the NuGet Package Manager Console:
+
 ```
-Update-Database
+$ Update-Database
 ```
+
 Once the database has been created, the application can be run. Options for running and debugging the application using IIS Express or Kestrel are provided within Visual Studio. From the command line, the following will start an instance of the Kestrel server to host the application:
+
 ```
-cd YourRepo/YourProject
-dotnet run
+$ cd YourRepo/YourProject
+$ dotnet run
 ```
-Unit testing is included in the AmandaFE/FrontendTesting project using the xUnit test framework. Tests have been provided for models, view models, controllers, and utility classes for the application.
 
 ---
 
