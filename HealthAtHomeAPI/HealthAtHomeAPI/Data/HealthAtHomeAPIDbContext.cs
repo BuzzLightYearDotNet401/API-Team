@@ -68,7 +68,7 @@ namespace HealthAtHomeAPI.Data
                     ExerciseName = "Bicep Curls",
                     Sets = 3,
                     Reps = 10,
-                    Image = "test",
+                    Image = "/Assets/Poses/Curls.jpg",
                     Description = "Hold a gallon of milk at your side with arms straight and palm forward, bend your elbow bring the weight toward your shoulder. Repeat."
                 },
                 new Exercises
@@ -77,7 +77,7 @@ namespace HealthAtHomeAPI.Data
                     ExerciseName = "Tricep Extensions",
                     Sets = 3,
                     Reps = 10,
-                    Image = "test",
+                    Image = "/Assets/Poses/TricepExtension.jpg",
                     Description = "Pose at a partial squat bending the waist, pin your elbow at you side, straighten your arm with your weight in hand."
                 },
                 new Exercises
@@ -86,7 +86,7 @@ namespace HealthAtHomeAPI.Data
                     ExerciseName = "Push Ups",
                     Sets = 3,
                     Reps = 10,
-                    Image = "test",
+                    Image = "/Assets/Poses/PushUp.jpg",
                     Description = "Begin in a plank position with hands slightly wider than shoulder width apart, keeping your core straight, bend your elbows to your sides, lowering yourself to the floor and push up."
                 },
                 new Exercises
@@ -95,7 +95,7 @@ namespace HealthAtHomeAPI.Data
                     ExerciseName = "Dips",
                     Sets = 3,
                     Reps = 10,
-                    Image = "test",
+                    Image = "/Assets/Poses/Dips.jpg",
                     Description = "On either a bed or a couch, place hands on the edge, bend your elbows, lowering yourself toward the floor in a reverse plank position. Press into your hands to return to a neutral position."
                 },
                 new Exercises
@@ -104,7 +104,7 @@ namespace HealthAtHomeAPI.Data
                     ExerciseName = "Over Head Press",
                     Sets = 3,
                     Reps = 10,
-                    Image = "test",
+                    Image = "/Assets/Poses/OverHeadPress.jpg",
                     Description = "Bring weight shoulders, straighten arms pressing weight over head."
                 },
 
@@ -116,7 +116,7 @@ namespace HealthAtHomeAPI.Data
                     ExerciseName = "Squat",
                     Sets = 3,
                     Reps = 10,
-                    Image = "test",
+                    Image = "/Assets/Poses/Squat.jpg",
                     Description = "Stand with feet slightly wider than shoulder width apart, sit back in an imaginary chair. Press feet into the ground to stand back up."
                 },
                 new Exercises
@@ -125,7 +125,7 @@ namespace HealthAtHomeAPI.Data
                     ExerciseName = "Lunges",
                     Sets = 3,
                     Reps = 10,
-                    Image = "test",
+                    Image = "/Assets/Poses/Lunge.jpg",
                     Description = "Stand in good posture. Step forward and bend both knees to 90 degrees, keeping trunk upright."
                 },
                 new Exercises
@@ -134,7 +134,7 @@ namespace HealthAtHomeAPI.Data
                     ExerciseName = "Sidelying Leg lifts",
                     Sets = 3,
                     Reps = 10,
-                    Image = "test",
+                    Image = "/Assets/Poses/SidelyingLegLift.jpg",
                     Description = "Begin lying on your side with bottom knee bent and top leg straight in line with your trunk. Hold a weight on the outside of your thigh. Lift your top leg up and back, keeping your knee straight."
                 },
                 new Exercises
@@ -143,7 +143,7 @@ namespace HealthAtHomeAPI.Data
                     ExerciseName = "Calf Raises",
                     Sets = 3,
                     Reps = 10,
-                    Image = "test",
+                    Image = "/Assets/Poses/CalfRaise.jpg",
                     Description = "Place the balls of your feet at the edge of a stair step. Lower your heels below the plane of the step, then push into the balls of your feet to rise back up."
                 },
                 new Exercises
@@ -152,7 +152,7 @@ namespace HealthAtHomeAPI.Data
                     ExerciseName = "Good Mornings",
                     Sets = 3,
                     Reps = 10,
-                    Image = "test",
+                    Image = "/Assets/Poses/GoodMorning.jpg",
                     Description = "Stand in good posture, weight optional. Bend forward, keeping knees straight and back flat. Return to standing, keeping your knees straight."
                 },
 
@@ -162,7 +162,7 @@ namespace HealthAtHomeAPI.Data
                     ExerciseName = "Bridging with leg extensions",
                     Sets = 3,
                     Reps = 10,
-                    Image = "test",
+                    Image = "/Assets/Poses/BridgeLegExtension.jpg",
                     Description = "Lie on your back with knees bent and feet flat. Lift glutes off floor and keeping hips square, straighten one leg. Lower back down and repeat on the other side."
                 },
                 new Exercises
@@ -171,7 +171,7 @@ namespace HealthAtHomeAPI.Data
                     ExerciseName = "Arm and Leg Extension on All Fours",
                     Sets = 3,
                     Reps = 10,
-                    Image = "test",
+                    Image = "/Assets/Poses/ArmLegExtension.jpg",
                     Description = "Begin on hands and knees, hands underneath shoulders, knees underneath hips. Lift opposite arm and leg. Hold for 3 seconds, then lower back down."
                 },
                 new Exercises
@@ -180,7 +180,7 @@ namespace HealthAtHomeAPI.Data
                     ExerciseName = "Plank",
                     Sets = 3,
                     Reps = 10,
-                    Image = "test",
+                    Image = "/Assets/Poses/Plank.jpg",
                     Description = "Begin on hands and knees, straighten one leg onto the ball of your foot, then the other. Squeeze gluteals and press hands into the floor, keeping your trunk and pelvis in neutral. Hold for up to 1 minute."
                 },
                 new Exercises
@@ -189,7 +189,7 @@ namespace HealthAtHomeAPI.Data
                     ExerciseName = "Pilates March",
                     Sets = 3,
                     Reps = 10,
-                    Image = "test",
+                    Image = "/Assets/Poses/PilatesRun.jpg",
                     Description = "Lie on your back and alternate lifting your legs to hip height. Keep your knees bent."
                 },
                 new Exercises
@@ -198,7 +198,7 @@ namespace HealthAtHomeAPI.Data
                     ExerciseName = "Trunk Twists",
                     Sets = 3,
                     Reps = 10,
-                    Image = "test",
+                    Image = "/Assets/Poses/TrunkTwist.jpg",
                     Description = "Sit with trunk straight and feet flat on the floor. Lean back slightly, holding a weight (optional). Move the weight from the left side of your body to the right side of your body back and forth."
                 },
 
@@ -264,7 +264,7 @@ namespace HealthAtHomeAPI.Data
                     ExerciseName = "Quad Stretch",
                     Sets = 3,
                     Reps = 1,
-                    Image = "test",
+                    Image = "/Assets/Poses/QuadStretch.jpg",
                     Description = "Stand in good posture. Using your hand, bring your foot towards your gluteals, keeping knees together."
                 },
 
@@ -274,7 +274,7 @@ namespace HealthAtHomeAPI.Data
                     ExerciseName = "Adductor Stretch",
                     Sets = 3,
                     Reps = 1,
-                    Image = "test",
+                    Image = "/Assets/Poses/AdductorStretch.jpg",
                     Description = "Perform a side lunge and allow the muscles on your inner thigh to stretch."
                 }
                 );
