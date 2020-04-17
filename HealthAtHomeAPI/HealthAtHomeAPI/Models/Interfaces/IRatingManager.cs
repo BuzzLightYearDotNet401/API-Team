@@ -19,7 +19,7 @@ namespace HealthAtHomeAPI.Models.Interfaces
 
 
         //update rating for a routine
-        Task <RatingDTO>UpdateRating(int starRating, Rating rating);
+        Task <RatingDTO>UpdateRating(Rating rating);
 
     }
 }

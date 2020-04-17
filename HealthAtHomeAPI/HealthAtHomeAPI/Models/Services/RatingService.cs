@@ -61,7 +61,7 @@ namespace HealthAtHomeAPI.Models.Services
         /// <param name="starRating"></param>
         /// <param name="rating"></param>
         /// <returns>It returns the updated rating</returns>
-        public async Task<RatingDTO> UpdateRating(int starRating, Rating rating)
+        public async Task<RatingDTO> UpdateRating(Rating rating)
         {
             var ratingDto = RatingDTO(rating);
             _context.Entry(rating).State = EntityState.Modified;
