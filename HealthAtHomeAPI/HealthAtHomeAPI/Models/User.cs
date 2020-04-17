@@ -7,7 +7,7 @@ namespace HealthAtHomeAPI.Models
 {
     public class User
     {
-        public int UserId { get; set; }
+        public int ID { get; set; }
         public string Name { get; set; }
 
         //Navigation prop

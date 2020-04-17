@@ -7,7 +7,7 @@ namespace HealthAtHomeAPI.Models.DTO
 {
     public class UserDTO
     {
-        public int UserId { get; set; }
+        public int ID { get; set; }
         public string Name { get; set; }
     }
 }

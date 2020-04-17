@@ -2,7 +2,7 @@
 
 namespace HealthAtHomeAPI.Migrations
 {
-    public partial class initial : Migration
+    public partial class fixUserId : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -23,13 +23,13 @@ namespace HealthAtHomeAPI.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(nullable: false)
+                    ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.UserId);
+                    table.PrimaryKey("PK_Users", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -56,23 +56,16 @@ namespace HealthAtHomeAPI.Migrations
                 {
                     UserId = table.Column<int>(nullable: false),
                     RoutineNameId = table.Column<int>(nullable: false),
-                    RatingId = table.Column<int>(nullable: false),
                     StarRating = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Ratings", x => new { x.UserId, x.RoutineNameId });
                     table.ForeignKey(
-                        name: "FK_Ratings_RoutineNames_RoutineNameId",
-                        column: x => x.RoutineNameId,
-                        principalTable: "RoutineNames",
-                        principalColumn: "RoutineNameId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
                         name: "FK_Ratings_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "UserId",
+                        principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -109,12 +102,12 @@ namespace HealthAtHomeAPI.Migrations
                     { 1, "Hold a gallon of milk at your side with arms straight and palm forward, bend your elbow bring the weight toward your shoulder. Repeat.", "Bicep Curls", "test", 10, null, null, 3 },
                     { 23, "Perform a side lunge and allow the muscles on your inner thigh to stretch.", "Adductor Stretch", "test", 1, null, null, 3 },
                     { 22, "Stand in good posture. Using your hand, bring your foot towards your gluteals, keeping knees together.", "Quad Stretch", "test", 1, null, null, 3 },
-                    { 21, "Sit with trunk straight and feet flat on the floor. Lean back slightly, and lift legs off the floor.", "Boat Pose", "test", 1, null, null, 3 },
-                    { 20, "From a downward dog position, bring one foot between your hands and stand into a lunge.", "Warrior I", "test", 1, null, null, 3 },
-                    { 19, "Begin lying on your stomach with hands at your shoulders. Press into your hands and lift your trunk off the floor.", "Cobra", "test", 1, null, null, 3 },
-                    { 18, "Begin in a plank position with hands slightly wider than shoulder width apart, keeping your core straight, bend your elbows to your sides, lowering yourself to the floor.", "Chattaranga", "test", 1, null, null, 3 },
-                    { 17, "Begin on hands and knees. Push down into your hands and knees, lifting your trunk into the air. Breathe deeply.", "Downward Dog", "test", 3, null, null, 1 },
-                    { 16, "Begin on hands and knees. Lower your belly and lift your head, then reverse the motion by rounding your back towards the ceiling and dropping your head. Repeat back and forth.", "Cat & Cow", "test", 10, null, null, 1 },
+                    { 21, "Sit with trunk straight and feet flat on the floor. Lean back slightly, and lift legs off the floor.", "Boat Pose", "/Assets/Poses/Yoga4.JPEG", 1, null, null, 3 },
+                    { 20, "From a downward dog position, bring one foot between your hands and stand into a lunge.", "Warrior I", "/Assets/Poses/Yoga7.JPEG", 1, null, null, 3 },
+                    { 19, "Begin lying on your stomach with hands at your shoulders. Press into your hands and lift your trunk off the floor.", "Cobra", "/Assets/Poses/Yoga5.JPEG", 1, null, null, 3 },
+                    { 18, "Begin in a plank position with hands slightly wider than shoulder width apart, keeping your core straight, bend your elbows to your sides, lowering yourself to the floor.", "Chattaranga", "/Assets/Poses/Yoga6.JPEG", 1, null, null, 3 },
+                    { 17, "Begin on hands and knees. Push down into your hands and knees, lifting your trunk into the air. Breathe deeply.", "Downward Dog", "/Assets/Poses/Yoga3.JPEG", 3, null, null, 1 },
+                    { 16, "Begin on hands and knees. Lower your belly and lift your head, then reverse the motion by rounding your back towards the ceiling and dropping your head. Repeat back and forth.", "Cat & Cow", "/Assets/Poses/Yoga2.JPEG", 10, null, null, 1 },
                     { 14, "Lie on your back and alternate lifting your legs to hip height. Keep your knees bent.", "Pilates March", "test", 10, null, null, 3 },
                     { 13, "Begin on hands and knees, straighten one leg onto the ball of your foot, then the other. Squeeze gluteals and press hands into the floor, keeping your trunk and pelvis in neutral. Hold for up to 1 minute.", "Plank", "test", 10, null, null, 3 },
                     { 15, "Sit with trunk straight and feet flat on the floor. Lean back slightly, holding a weight (optional). Move the weight from the left side of your body to the right side of your body back and forth.", "Trunk Twists", "test", 10, null, null, 3 },
@@ -146,20 +139,15 @@ namespace HealthAtHomeAPI.Migrations
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "UserId", "Name" },
+                columns: new[] { "ID", "Name" },
                 values: new object[] { 1, "test" });
-
-            migrationBuilder.InsertData(
-                table: "Ratings",
-                columns: new[] { "UserId", "RoutineNameId", "RatingId", "StarRating" },
-                values: new object[] { 1, 1, 1, 4 });
 
             migrationBuilder.InsertData(
                 table: "Routines",
                 columns: new[] { "ExerciseId", "RoutineNameId" },
                 values: new object[,]
                 {
-                    { 20, 6 },
+                    { 1, 1 },
                     { 19, 6 },
                     { 18, 6 },
                     { 17, 6 },
@@ -172,8 +160,8 @@ namespace HealthAtHomeAPI.Migrations
                     { 15, 4 },
                     { 14, 4 },
                     { 13, 4 },
-                    { 21, 6 },
                     { 12, 4 },
+                    { 11, 4 },
                     { 12, 3 },
                     { 11, 3 },
                     { 10, 3 },
@@ -187,19 +175,14 @@ namespace HealthAtHomeAPI.Migrations
                     { 4, 1 },
                     { 3, 1 },
                     { 2, 1 },
-                    { 11, 4 },
-                    { 1, 1 }
+                    { 20, 6 },
+                    { 21, 6 }
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Exercises_RoutineExerciseId_RoutineNameId",
                 table: "Exercises",
                 columns: new[] { "RoutineExerciseId", "RoutineNameId" });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Ratings_RoutineNameId",
-                table: "Ratings",
-                column: "RoutineNameId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Ratings_UserId",

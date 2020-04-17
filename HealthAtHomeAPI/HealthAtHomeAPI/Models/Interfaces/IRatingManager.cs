@@ -10,7 +10,7 @@ namespace HealthAtHomeAPI.Models.Interfaces
     {
 
         // create a rating 
-        Task<RatingDTO> CreateRating(Rating rating);
+        Task<RatingDTO> CreateRating(RatingDTO rating);
 
 
         //get all routineNames where rating >=3

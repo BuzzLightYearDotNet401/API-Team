@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HealthAtHomeAPI.Migrations
 {
     [DbContext(typeof(HealthAtHomeAPIDbContext))]
-    [Migration("20200415003622_initial")]
-    partial class initial
+    [Migration("20200417015110_fixUserId")]
+    partial class fixUserId
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -196,7 +196,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 16,
                             Description = "Begin on hands and knees. Lower your belly and lift your head, then reverse the motion by rounding your back towards the ceiling and dropping your head. Repeat back and forth.",
                             ExerciseName = "Cat & Cow",
-                            Image = "test",
+                            Image = "/Assets/Poses/Yoga2.JPEG",
                             Reps = 10,
                             Sets = 1
                         },
@@ -205,7 +205,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 17,
                             Description = "Begin on hands and knees. Push down into your hands and knees, lifting your trunk into the air. Breathe deeply.",
                             ExerciseName = "Downward Dog",
-                            Image = "test",
+                            Image = "/Assets/Poses/Yoga3.JPEG",
                             Reps = 3,
                             Sets = 1
                         },
@@ -214,7 +214,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 18,
                             Description = "Begin in a plank position with hands slightly wider than shoulder width apart, keeping your core straight, bend your elbows to your sides, lowering yourself to the floor.",
                             ExerciseName = "Chattaranga",
-                            Image = "test",
+                            Image = "/Assets/Poses/Yoga6.JPEG",
                             Reps = 1,
                             Sets = 3
                         },
@@ -223,7 +223,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 19,
                             Description = "Begin lying on your stomach with hands at your shoulders. Press into your hands and lift your trunk off the floor.",
                             ExerciseName = "Cobra",
-                            Image = "test",
+                            Image = "/Assets/Poses/Yoga5.JPEG",
                             Reps = 1,
                             Sets = 3
                         },
@@ -232,7 +232,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 20,
                             Description = "From a downward dog position, bring one foot between your hands and stand into a lunge.",
                             ExerciseName = "Warrior I",
-                            Image = "test",
+                            Image = "/Assets/Poses/Yoga7.JPEG",
                             Reps = 1,
                             Sets = 3
                         },
@@ -241,7 +241,7 @@ namespace HealthAtHomeAPI.Migrations
                             ExerciseId = 21,
                             Description = "Sit with trunk straight and feet flat on the floor. Lean back slightly, and lift legs off the floor.",
                             ExerciseName = "Boat Pose",
-                            Image = "test",
+                            Image = "/Assets/Poses/Yoga4.JPEG",
                             Reps = 1,
                             Sets = 3
                         },
@@ -273,29 +273,15 @@ namespace HealthAtHomeAPI.Migrations
                     b.Property<int>("RoutineNameId")
                         .HasColumnType("int");
 
-                    b.Property<int>("RatingId")
-                        .HasColumnType("int");
-
                     b.Property<int>("StarRating")
                         .HasColumnType("int");
 
                     b.HasKey("UserId", "RoutineNameId");
 
-                    b.HasIndex("RoutineNameId");
-
                     b.HasIndex("UserId")
                         .IsUnique();
 
                     b.ToTable("Ratings");
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = 1,
-                            RoutineNameId = 1,
-                            RatingId = 1,
-                            StarRating = 4
-                        });
                 });
 
             modelBuilder.Entity("HealthAtHomeAPI.Models.Routine", b =>
@@ -514,7 +500,7 @@ namespace HealthAtHomeAPI.Migrations
 
             modelBuilder.Entity("HealthAtHomeAPI.Models.User", b =>
                 {
-                    b.Property<int>("UserId")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -522,14 +508,14 @@ namespace HealthAtHomeAPI.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("UserId");
+                    b.HasKey("ID");
 
                     b.ToTable("Users");
 
                     b.HasData(
                         new
                         {
-                            UserId = 1,
+                            ID = 1,
                             Name = "test"
                         });
                 });
@@ -543,13 +529,7 @@ namespace HealthAtHomeAPI.Migrations
 
             modelBuilder.Entity("HealthAtHomeAPI.Models.Rating", b =>
                 {
-                    b.HasOne("HealthAtHomeAPI.Models.RoutineName", "RoutineNames")
-                        .WithMany()
-                        .HasForeignKey("RoutineNameId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("HealthAtHomeAPI.Models.User", "Users")
+                    b.HasOne("HealthAtHomeAPI.Models.User", null)
                         .WithOne("RatingId")
                         .HasForeignKey("HealthAtHomeAPI.Models.Rating", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)

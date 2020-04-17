@@ -23,13 +23,17 @@ namespace HealthAtHomeAPI.Models.Services
             _routineName = routineName;
         }
 
-        public async Task<RatingDTO> CreateRating(Rating rating)
+        public async Task<RatingDTO> CreateRating(RatingDTO rating)
         {
-            var ratingDTO = RatingDTO(rating);
+            var rateingEntity = ConvertToRating(rating);
+
+            _context.Ratings.Add(rateingEntity);
             //rating.UserId = userId; 
-            _context.Ratings.Add(rating);
+
             await _context.SaveChangesAsync();
-            return ratingDTO;
+
+            var rateingDTO = RatingDTO(rateingEntity);
+            return rateingDTO;
         }
 
         /// <summary>
@@ -57,7 +61,7 @@ namespace HealthAtHomeAPI.Models.Services
         /// <param name="starRating"></param>
         /// <param name="rating"></param>
         /// <returns>It returns the updated rating</returns>
-        public async Task<RatingDTO>UpdateRating(int starRating, Rating rating)
+        public async Task<RatingDTO> UpdateRating(int starRating, Rating rating)
         {
             var ratingDto = RatingDTO(rating);
             _context.Entry(rating).State = EntityState.Modified;
@@ -74,12 +78,23 @@ namespace HealthAtHomeAPI.Models.Services
         {
             RatingDTO rDto = new RatingDTO()
             {
-                RatingId = rating.RatingId,
                 UserId = rating.UserId,
                 RoutineNameId = rating.RoutineNameId,
                 StarRating = rating.StarRating
             };
             return rDto;
+        }
+
+        private Rating ConvertToRating(RatingDTO rating)
+        {
+            Rating ratng = new Rating()
+            {
+                UserId = rating.UserId,
+                RoutineNameId = rating.RoutineNameId,
+                StarRating = rating.StarRating
+
+            };
+            return ratng;
         }
     }
 }

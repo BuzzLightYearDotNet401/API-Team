@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using HealthAtHomeAPI.Data;
 using HealthAtHomeAPI.Models;
 using HealthAtHomeAPI.Models.Interfaces;
+using HealthAtHomeAPI.Models.DTO;
 
 namespace HealthAtHomeAPI.Controllers
 {
@@ -91,12 +92,12 @@ namespace HealthAtHomeAPI.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<Rating>> PostRating(Rating rating)
+        public async Task<ActionResult<Rating>> PostRating(RatingDTO rating)
         {
-            _context.Ratings.Add(rating);
+            // _context.Ratings.Add(rating);
             await _rating.CreateRating(rating);
-
-            return CreatedAtAction("GetRating", new { id = rating.UserId }, rating);
+            // return CreatedAtAction("GetRating", new { id = rating.RatingId }, rating);
+            return NoContent();
         }
 
         /// <summary>
