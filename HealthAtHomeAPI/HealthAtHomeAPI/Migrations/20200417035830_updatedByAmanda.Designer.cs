@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HealthAtHomeAPI.Migrations
 {
     [DbContext(typeof(HealthAtHomeAPIDbContext))]
-    [Migration("20200417010208_correctedImageUrl")]
-    partial class correctedImageUrl
+    [Migration("20200417035830_updatedByAmanda")]
+    partial class updatedByAmanda
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -60,8 +60,8 @@ namespace HealthAtHomeAPI.Migrations
                         {
                             ExerciseId = 1,
                             Description = "Hold a gallon of milk at your side with arms straight and palm forward, bend your elbow bring the weight toward your shoulder. Repeat.",
-                            ExerciseName = "Bicep Curls",
-                            Image = "/Assets/Poses/Curls.jpg",
+                            ExerciseName = "Bicep Curl",
+                            Image = "/Assets/Poses/Curl.jpg",
                             Reps = 10,
                             Sets = 3
                         },
@@ -273,29 +273,15 @@ namespace HealthAtHomeAPI.Migrations
                     b.Property<int>("RoutineNameId")
                         .HasColumnType("int");
 
-                    b.Property<int>("RatingId")
-                        .HasColumnType("int");
-
                     b.Property<int>("StarRating")
                         .HasColumnType("int");
 
                     b.HasKey("UserId", "RoutineNameId");
 
-                    b.HasIndex("RoutineNameId");
-
                     b.HasIndex("UserId")
                         .IsUnique();
 
                     b.ToTable("Ratings");
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = 1,
-                            RoutineNameId = 1,
-                            RatingId = 1,
-                            StarRating = 4
-                        });
                 });
 
             modelBuilder.Entity("HealthAtHomeAPI.Models.Routine", b =>
@@ -514,7 +500,7 @@ namespace HealthAtHomeAPI.Migrations
 
             modelBuilder.Entity("HealthAtHomeAPI.Models.User", b =>
                 {
-                    b.Property<int>("UserId")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -522,14 +508,14 @@ namespace HealthAtHomeAPI.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("UserId");
+                    b.HasKey("ID");
 
                     b.ToTable("Users");
 
                     b.HasData(
                         new
                         {
-                            UserId = 1,
+                            ID = 1,
                             Name = "test"
                         });
                 });
@@ -543,13 +529,7 @@ namespace HealthAtHomeAPI.Migrations
 
             modelBuilder.Entity("HealthAtHomeAPI.Models.Rating", b =>
                 {
-                    b.HasOne("HealthAtHomeAPI.Models.RoutineName", "RoutineNames")
-                        .WithMany()
-                        .HasForeignKey("RoutineNameId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("HealthAtHomeAPI.Models.User", "Users")
+                    b.HasOne("HealthAtHomeAPI.Models.User", null)
                         .WithOne("RatingId")
                         .HasForeignKey("HealthAtHomeAPI.Models.Rating", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
