@@ -4,14 +4,16 @@ using HealthAtHomeAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HealthAtHomeAPI.Migrations
 {
     [DbContext(typeof(HealthAtHomeAPIDbContext))]
-    partial class HealthAtHomeAPIDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200417010401_imageUrlUpdate")]
+    partial class imageUrlUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -271,15 +273,29 @@ namespace HealthAtHomeAPI.Migrations
                     b.Property<int>("RoutineNameId")
                         .HasColumnType("int");
 
+                    b.Property<int>("RatingId")
+                        .HasColumnType("int");
+
                     b.Property<int>("StarRating")
                         .HasColumnType("int");
 
                     b.HasKey("UserId", "RoutineNameId");
 
+                    b.HasIndex("RoutineNameId");
+
                     b.HasIndex("UserId")
                         .IsUnique();
 
                     b.ToTable("Ratings");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = 1,
+                            RoutineNameId = 1,
+                            RatingId = 1,
+                            StarRating = 4
+                        });
                 });
 
             modelBuilder.Entity("HealthAtHomeAPI.Models.Routine", b =>
@@ -498,7 +514,7 @@ namespace HealthAtHomeAPI.Migrations
 
             modelBuilder.Entity("HealthAtHomeAPI.Models.User", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -506,14 +522,14 @@ namespace HealthAtHomeAPI.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("UserId");
 
                     b.ToTable("Users");
 
                     b.HasData(
                         new
                         {
-                            ID = 1,
+                            UserId = 1,
                             Name = "test"
                         });
                 });
@@ -527,7 +543,13 @@ namespace HealthAtHomeAPI.Migrations
 
             modelBuilder.Entity("HealthAtHomeAPI.Models.Rating", b =>
                 {
-                    b.HasOne("HealthAtHomeAPI.Models.User", null)
+                    b.HasOne("HealthAtHomeAPI.Models.RoutineName", "RoutineNames")
+                        .WithMany()
+                        .HasForeignKey("RoutineNameId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HealthAtHomeAPI.Models.User", "Users")
                         .WithOne("RatingId")
                         .HasForeignKey("HealthAtHomeAPI.Models.Rating", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
