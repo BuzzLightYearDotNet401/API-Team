@@ -4,14 +4,16 @@ using HealthAtHomeAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HealthAtHomeAPI.Migrations
 {
     [DbContext(typeof(HealthAtHomeAPIDbContext))]
-    partial class HealthAtHomeAPIDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200417010208_correctedImageUrl")]
+    partial class correctedImageUrl
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,8 +60,8 @@ namespace HealthAtHomeAPI.Migrations
                         {
                             ExerciseId = 1,
                             Description = "Hold a gallon of milk at your side with arms straight and palm forward, bend your elbow bring the weight toward your shoulder. Repeat.",
-                            ExerciseName = "Bicep Curl",
-                            Image = "/Assets/Poses/Curl.jpg",
+                            ExerciseName = "Bicep Curls",
+                            Image = "/Assets/Poses/Curls.jpg",
                             Reps = 10,
                             Sets = 3
                         },
