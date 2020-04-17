@@ -2,7 +2,7 @@
 
 namespace HealthAtHomeAPI.Migrations
 {
-    public partial class initial : Migration
+    public partial class updatedByAmanda : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -23,13 +23,13 @@ namespace HealthAtHomeAPI.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(nullable: false)
+                    ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.UserId);
+                    table.PrimaryKey("PK_Users", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -56,23 +56,16 @@ namespace HealthAtHomeAPI.Migrations
                 {
                     UserId = table.Column<int>(nullable: false),
                     RoutineNameId = table.Column<int>(nullable: false),
-                    RatingId = table.Column<int>(nullable: false),
                     StarRating = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Ratings", x => new { x.UserId, x.RoutineNameId });
                     table.ForeignKey(
-                        name: "FK_Ratings_RoutineNames_RoutineNameId",
-                        column: x => x.RoutineNameId,
-                        principalTable: "RoutineNames",
-                        principalColumn: "RoutineNameId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
                         name: "FK_Ratings_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "UserId",
+                        principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -106,7 +99,7 @@ namespace HealthAtHomeAPI.Migrations
                 columns: new[] { "ExerciseId", "Description", "ExerciseName", "Image", "Reps", "RoutineExerciseId", "RoutineNameId", "Sets" },
                 values: new object[,]
                 {
-                    { 1, "Hold a gallon of milk at your side with arms straight and palm forward, bend your elbow bring the weight toward your shoulder. Repeat.", "Bicep Curls", "/Assets/Poses/Curls.jpg", 10, null, null, 3 },
+                    { 1, "Hold a gallon of milk at your side with arms straight and palm forward, bend your elbow bring the weight toward your shoulder. Repeat.", "Bicep Curl", "/Assets/Poses/Curl.jpg", 10, null, null, 3 },
                     { 23, "Perform a side lunge and allow the muscles on your inner thigh to stretch.", "Adductor Stretch", "/Assets/Poses/AdductorStretch.jpg", 1, null, null, 3 },
                     { 22, "Stand in good posture. Using your hand, bring your foot towards your gluteals, keeping knees together.", "Quad Stretch", "/Assets/Poses/QuadStretch.jpg", 1, null, null, 3 },
                     { 21, "Sit with trunk straight and feet flat on the floor. Lean back slightly, and lift legs off the floor.", "Boat Pose", "/Assets/Poses/Yoga4.JPEG", 1, null, null, 3 },
@@ -146,20 +139,15 @@ namespace HealthAtHomeAPI.Migrations
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "UserId", "Name" },
+                columns: new[] { "ID", "Name" },
                 values: new object[] { 1, "test" });
-
-            migrationBuilder.InsertData(
-                table: "Ratings",
-                columns: new[] { "UserId", "RoutineNameId", "RatingId", "StarRating" },
-                values: new object[] { 1, 1, 1, 4 });
 
             migrationBuilder.InsertData(
                 table: "Routines",
                 columns: new[] { "ExerciseId", "RoutineNameId" },
                 values: new object[,]
                 {
-                    { 20, 6 },
+                    { 1, 1 },
                     { 19, 6 },
                     { 18, 6 },
                     { 17, 6 },
@@ -172,8 +160,8 @@ namespace HealthAtHomeAPI.Migrations
                     { 15, 4 },
                     { 14, 4 },
                     { 13, 4 },
-                    { 21, 6 },
                     { 12, 4 },
+                    { 11, 4 },
                     { 12, 3 },
                     { 11, 3 },
                     { 10, 3 },
@@ -187,19 +175,14 @@ namespace HealthAtHomeAPI.Migrations
                     { 4, 1 },
                     { 3, 1 },
                     { 2, 1 },
-                    { 11, 4 },
-                    { 1, 1 }
+                    { 20, 6 },
+                    { 21, 6 }
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Exercises_RoutineExerciseId_RoutineNameId",
                 table: "Exercises",
                 columns: new[] { "RoutineExerciseId", "RoutineNameId" });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Ratings_RoutineNameId",
-                table: "Ratings",
-                column: "RoutineNameId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Ratings_UserId",

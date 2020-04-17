@@ -271,29 +271,15 @@ namespace HealthAtHomeAPI.Migrations
                     b.Property<int>("RoutineNameId")
                         .HasColumnType("int");
 
-                    b.Property<int>("RatingId")
-                        .HasColumnType("int");
-
                     b.Property<int>("StarRating")
                         .HasColumnType("int");
 
                     b.HasKey("UserId", "RoutineNameId");
 
-                    b.HasIndex("RoutineNameId");
-
                     b.HasIndex("UserId")
                         .IsUnique();
 
                     b.ToTable("Ratings");
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = 1,
-                            RoutineNameId = 1,
-                            RatingId = 1,
-                            StarRating = 4
-                        });
                 });
 
             modelBuilder.Entity("HealthAtHomeAPI.Models.Routine", b =>
@@ -512,7 +498,7 @@ namespace HealthAtHomeAPI.Migrations
 
             modelBuilder.Entity("HealthAtHomeAPI.Models.User", b =>
                 {
-                    b.Property<int>("UserId")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -520,14 +506,14 @@ namespace HealthAtHomeAPI.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("UserId");
+                    b.HasKey("ID");
 
                     b.ToTable("Users");
 
                     b.HasData(
                         new
                         {
-                            UserId = 1,
+                            ID = 1,
                             Name = "test"
                         });
                 });
@@ -541,13 +527,7 @@ namespace HealthAtHomeAPI.Migrations
 
             modelBuilder.Entity("HealthAtHomeAPI.Models.Rating", b =>
                 {
-                    b.HasOne("HealthAtHomeAPI.Models.RoutineName", "RoutineNames")
-                        .WithMany()
-                        .HasForeignKey("RoutineNameId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("HealthAtHomeAPI.Models.User", "Users")
+                    b.HasOne("HealthAtHomeAPI.Models.User", null)
                         .WithOne("RatingId")
                         .HasForeignKey("HealthAtHomeAPI.Models.Rating", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)

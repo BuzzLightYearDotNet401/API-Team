@@ -436,29 +436,29 @@ namespace HealthAtHomeAPI.Data
 
 
 
-            // Brandon - please seed data for Rating
-            modelBuilder.Entity<Rating>().HasData(
-                 new Rating
-                 {
-                       RatingId = 1,
-                       UserId = 1,
-                       RoutineNameId = 1,
-                       StarRating = StarRating.FourStar
-                 }
-                 //new Rating
-                 //{
-                 //      RatingId = 2,
-                 //      UserId = 1,
-                 //      RoutineNameId = 2,
-                 //      StarRating = StarRating.TwoStar
-                 //}
-                 );
+            //// Brandon - please seed data for Rating
+            //modelBuilder.Entity<Rating>().HasData(
+            //     new Rating
+            //     {
+                     
+            //           UserId = 1,
+            //           RoutineNameId = 1,
+            //           StarRating = StarRating.FourStar
+            //     },
+            //     new Rating
+            //     {
+                     
+            //           UserId = 1,
+            //           RoutineNameId = 2,
+            //           StarRating = StarRating.TwoStar
+            //     }
+            //     );
 
             // Brandon - please seed data for User
             modelBuilder.Entity<User>().HasData(
                  new User
                  {
-                     UserId = 1,
+                     ID = 1,
                      Name = "test"
                  }
                  );

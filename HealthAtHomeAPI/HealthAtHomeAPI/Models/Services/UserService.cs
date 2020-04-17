@@ -64,7 +64,7 @@ namespace HealthAtHomeAPI.Models.Services
         {
             UserDTO uDto = new UserDTO()
             {
-                UserId = user.UserId,
+                ID = user.ID,
                 Name = user.Name
             };
             return uDto;

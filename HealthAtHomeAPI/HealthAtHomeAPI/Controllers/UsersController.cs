@@ -41,7 +41,8 @@ namespace HealthAtHomeAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
-            return await _context.Users.ToListAsync();
+            var id = await _context.Users.ToListAsync();
+            return id;
         }
 
         /// <summary>
@@ -75,7 +76,7 @@ namespace HealthAtHomeAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUser(int id, User user)
         {
-            if (id != user.UserId)
+            if (id != user.ID)
             {
                 return BadRequest();
             }
@@ -115,7 +116,7 @@ namespace HealthAtHomeAPI.Controllers
             _context.Users.Add(user);
             await _user.CreateUser(user);
 
-            return CreatedAtAction("GetUser", new { id = user.UserId }, user);
+            return CreatedAtAction("GetUser", new { id = user.ID }, user);
         }
 
         /// <summary>
@@ -139,7 +140,7 @@ namespace HealthAtHomeAPI.Controllers
         /// <returns>True or False</returns>
         private bool UserExists(int id)
         {
-            return _context.Users.Any(e => e.UserId == id);
+            return _context.Users.Any(e => e.ID == id);
         }
     }
 }
