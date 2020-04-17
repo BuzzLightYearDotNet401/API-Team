@@ -65,10 +65,10 @@ namespace HealthAtHomeAPI.Data
                 new Exercises
                 {
                     ExerciseId = 1,
-                    ExerciseName = "Bicep Curls",
+                    ExerciseName = "Bicep Curl",
                     Sets = 3,
                     Reps = 10,
-                    Image = "/Assets/Poses/Curls.jpg",
+                    Image = "/Assets/Poses/Curl.jpg",
                     Description = "Hold a gallon of milk at your side with arms straight and palm forward, bend your elbow bring the weight toward your shoulder. Repeat."
                 },
                 new Exercises
